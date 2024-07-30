@@ -5,53 +5,47 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView,
 )
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.views import View
-from django.views.generic.edit import FormView
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib import messages
 from .forms import SignUpForm
+from django.contrib import messages
 
-class SignUpView(FormView):
-    template_name = 'authentication/register.html'
-    form_class = SignUpForm
-    success_url = reverse_lazy('login')
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(email=email,  password=raw_password)
+            login(request, user)
+            return redirect('login')  
+    else:
+        form = SignUpForm()
+    return render(request, 'authentication/register.html', {'form': form})
 
-    def form_valid(self, form):
-        user = form.save()
-        email = form.cleaned_data.get('email')
-        raw_password = form.cleaned_data.get('password1')
-        user = authenticate(email=email, password=raw_password)
-        login(self.request, user)
-        return super().form_valid(form)
-
-class UserLoginView(FormView):
-    template_name = 'authentication/login.html'
-    form_class = AuthenticationForm
-    success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        email = self.request.POST.get('username')
-        password = self.request.POST.get('password')
-        user = authenticate(self.request, email=email, password=password)
-        if user is not None:
-            login(self.request, user)
-            return super().form_valid(form)
+def user_login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+        if email and password:
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.error(request, "Invalid email or password")
         else:
-            messages.error(self.request, "Invalid email or password")
-            return self.form_invalid(form)
+            messages.error(request, "Please provide both email and password")
+            
+    return render(request, 'authentication/login.html')
 
-    def form_invalid(self, form):
-        messages.error(self.request, "Please provide both email and password")
-        return super().form_invalid(form)
 
-class UserLogoutView(View):
-    def get(self, request):
-        logout(request)
-        return redirect('home')
-
-# Password reset views (these are already class-based views)
+def user_logout(request):
+    logout(request)
+    return redirect('home') 
+# Password reset views
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'authentication/reset_password.html'
     success_url = reverse_lazy('password_reset_done')
