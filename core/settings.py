@@ -37,6 +37,7 @@ DJANGO_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livereload',
     'django.contrib.staticfiles',
 ]
 LOCAL_APPS = [
@@ -47,7 +48,6 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'livereload',
     'widget_tweaks',
 ]
 

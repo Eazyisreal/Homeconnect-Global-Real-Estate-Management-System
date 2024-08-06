@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #002366;
+    --secondary-color: #E7F2F5;
+    --tertiary-color: #E5E8EA
+    --background-white: #FBFBFB;
+    --black: #050505;
+    --white: #FFFFFF
+  }
+
+  .wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .header{
+    background-color: var(--white);
+    width: 100%;
+    padding: .5rem 2rem;
+  }
+
+  .inner-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
