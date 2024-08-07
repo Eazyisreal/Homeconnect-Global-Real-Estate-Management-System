@@ -1,10 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
 :root {
     --primary-color: #002366;
     --secondary-color: #E7F2F5;
     --tertiary-color: #E5E8EA
     --background-white: #FBFBFB;
     --black: #050505;
-    --white: #FFFFFF
+    --white: #FFFFFF;
+    --neue-montreal: "Neue Montreal", sans-serif;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("../fonts/NeueMontreal.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 
   .wrapper{
@@ -15,7 +30,9 @@
   .header{
     background-color: var(--white);
     width: 100%;
-    padding: .5rem 2rem;
+    padding:  2rem;
+    position: fixed;
+    max-width: 1440px;
   }
 
   .inner-header{
@@ -23,3 +40,41 @@
     width: 100%;
     justify-content: space-between;
   }
+
+  .nav-links{
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-items{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+  .nav-items a{
+    text-decoration: none;
+    font-family: var(--neue-montreal);
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.875rem;
+    border: 1.5px solid; 
+    padding: .625rem;
+    border-radius: 6.25rem;
+    background: linear-gradient(to bottom, #002366, #0046CC);
+    color: white; 
+    text-align: center; 
+    font-size: 1.25rem; 
+    cursor: pointer; 
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+}
