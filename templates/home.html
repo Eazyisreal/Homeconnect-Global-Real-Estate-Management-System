@@ -1,2 +1,174 @@
 {% extends "_base.html" %}
 {% load static %}
+
+{% block title %}Home | HomeConnect Global{% endblock %}
+{% block meta_description %}Discover your dream home with HomeConnect Global. We offer a wide range of properties to meet all your real estate needs.{% endblock %}
+{% block meta_keywords %}real estate, e-Swift, property listings, homes for sale, real estate services, buy property{% endblock %}
+{% block css %}{% static 'css/home.css' %}{% endblock %}
+
+{% block og_title %}Home | e-Swift Propertymart{% endblock %}
+{% block og_description %}Discover your dream home with HomeConnect Global. Explore our wide range of property listings and find the perfect place to call home.{% endblock %}
+{% block og_image %}{% static 'img/logo.svg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+{% block og_type %}website{% endblock %}
+
+{% block twitter_title %}Home | e-Swift Propertymart{% endblock %}
+{% block twitter_description %}Discover your dream home with  HomeConnect Global. Explore our wide range of property listings and find the perfect place to call home.{% endblock %}
+{% block twitter_image %}{% static 'img/logo.svg' %}{% endblock %}
+
+{% block content%}
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay loop muted>
+            <source src="/static/img/hero-background.mp4" type="video/mp4">
+          </video>
+        <div class="video-overlay"></div>
+        <div class="inner-hero">
+            <div class="top-hero">
+                <h1>
+                    Uncover the best offers on the real estate market.
+                </h1>
+                <p>Discover a wide range of properties for rent and sale, expertly managed for your convenience. </p>
+            </div>
+            
+            <div class="advanced-search-container">
+                <div class="advanced-search">
+                    <div class="top-search-container">
+                        <div class="search-items">
+                            <h3>Location</h3>
+                            <div class="project-search-form relative">
+                                <img loading="lazy" class="absolute" src="{% static 'img/location.svg' %}" alt="Search Icon" />
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="City, State" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                        <div class="search-items">
+                            <h3>Property Types</h3>
+                            <div class="project-search-form relative">
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="All Category" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                        <div class="search-items">
+                            <h3>Listing Type</h3>
+                            <div class="project-search-form relative">
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="Rent" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advanced-search-btn-container">
+                        <button type="submit" class="advanced-search-btn">Search</button>
+                        <button class="reset" type="reset">Reset All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties listing section -->
+     <section class="properties">
+        <div class="inner-properties">
+            <div class="top-properties">
+                <div class="listing-text">
+                    <h3>Latest Listings</h3>
+                    <p>Explore the newest listings in your desired area and find your dream home today</p>
+                </div>
+
+                <div>
+                    <button class="properties-btn">See all</button>
+                </div>
+            </div>
+            <div class="properties-grid-container">
+                <div class="properties-grid">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-top">
+                                <div class="property-details-top-inner">
+                                    <p>Rent</p>
+                                    <p>Ekpoma, Edo State</p>
+                                </div>
+                                <p>BOLDION HOSTEL 4 UNI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+     </section>
+</main>
+{% endblock %}
