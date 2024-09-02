@@ -45,51 +45,70 @@
       {% endblock %}
       <footer class="footer">
       <div class="wrapper">
-          <div class="upper-frame"></div>
-          <div class="lower-frame">
-              <div class="inner-lower-frame">
-                  <div class="top-info-div">
-                      <div class="newsletter">
-                        <div class="inner-newsletter">
-                          <h3>Subscribe to <br/> our newsletter</h3>
-                          <div class="input-container">
-                            <input placeholder="Email Address" type="email" name="email" id="email">
-                            <button class="newsletter-btn"></button>
-                          </div>
-                        </div>
-                        <p>Feel free to unsubscribe from these communications at any time. For more information on how to do so, our privacy practices, and our commitment to protecting your privacy, please review our Privacy Policy.</p>
-                      </div>
-                    </div>
-                    <div class="quick-links-grid">
-                      {% for link in quick_links %}
-                          <div class="quick-links-column">
-                              <h2>{{ link.title }}</h2>
-                              <ul class="quick-links-list">
-                                  {% for child in link.children %}
-                                      <li><a href="{{ child.url }}">{{ child.title }}</a></li>
-                                  {% endfor %}
-                              </ul>
-                          </div>
-                      {% endfor %}
+        <div class="frame-container">
+          <div class="upper-frame-wrapper">
+            <div class="upper-frame">
+              <div class="inner-upper-frame">
+                  <div class="text-container">
+                    <h3>Join Us As An Agent</h3>
+                    <p>Are you passionate about real estate and dedicated to delivering exceptional service?</p>
+                  </div>
+
+                  <div class="btn-container">
+                    <button class="manage-btn">
+                      Contact us
+                    </button>
+                    
+                    <button class="properties-btn">Read More</button>
                   </div>
               </div>
-
-              <div class="outer-lower-frame">
-                  <hr>
-                  <div class="bottom-links">
-                      <h3>© Copyright 2024 Homeconnectng. All Rights Reserved</h3>
-                      <div class="social-links">
-                          <h3>Get In Touch</h3>
-                          <ul class="social-link-items">
-                              <li><a href=""><img src="{% static 'img/whatsapp.svg' %}" alt=""></a></li>
-                              <li><a href=""><img src="{% static 'img/facebook.svg' %}" alt=""></a></li>
-                              <li><a href=""><img src="{% static 'img/instagram.svg' %}" alt=""></a></li>
-
-                          </ul>
-                      </div>
-                  </div>
-              </div>
+            </div>
           </div>
+          <div class="lower-frame">
+                <div class="inner-lower-frame">
+                    <div class="top-info-div">
+                        <div class="newsletter">
+                          <div class="inner-newsletter">
+                            <h3>Subscribe to <br/> our newsletter</h3>
+                            <div class="input-container">
+                              <input placeholder="Email Address" type="email" name="email" id="email">
+                              <button class="newsletter-btn"></button>
+                            </div>
+                          </div>
+                          <p>Feel free to unsubscribe from these communications at any time. For more information on how to do so, our privacy practices, and our commitment to protecting your privacy, please review our Privacy Policy.</p>
+                        </div>
+                      </div>
+                      <div class="quick-links-grid">
+                        {% for link in quick_links %}
+                            <div class="quick-links-column">
+                                <h2>{{ link.title }}</h2>
+                                <ul class="quick-links-list">
+                                    {% for child in link.children %}
+                                        <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+  
+                <div class="outer-lower-frame">
+                    <hr>
+                    <div class="bottom-links">
+                        <h3>© Copyright 2024 Homeconnectng. All Rights Reserved</h3>
+                        <div class="social-links">
+                            <h3>Get In Touch</h3>
+                            <ul class="social-link-items">
+                                <li><a href=""><img src="{% static 'img/whatsapp.svg' %}" alt=""></a></li>
+                                <li><a href=""><img src="{% static 'img/facebook.svg' %}" alt=""></a></li>
+                                <li><a href=""><img src="{% static 'img/instagram.svg' %}" alt=""></a></li>
+  
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
       </div>
       </footer>
     </section>

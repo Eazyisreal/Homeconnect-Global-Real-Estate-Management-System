@@ -90,10 +90,12 @@
     color: white; 
     text-align: center; 
     font-size: 1.25rem; 
+    font-weight: 400;
+    white-space: no-wrap;
     cursor: pointer; 
     font-family: var(--neue-montreal);
     font-weight: 500;
-    width: 6.5rem;
+    width: 9.5rem;
 }
 
 .footer {
@@ -102,8 +104,70 @@
     url('/static/img/footer-background.svg') var(--primary-color) center; 
   background-size: cover;
   height: 100%;
-  padding: 10rem 2rem 2rem;
+  padding: 2rem;
   background-blend-mode: multiply;
+}
+
+.frame-container{
+  display: flex;
+  flex-direction: column;
+  gap: 6.25rem
+}
+
+.upper-frame-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper-frame{
+  background-color: var(--white);
+  width: 80%;
+  display: flex;
+  border-radius: 3.125rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: -18%;
+  padding: 4rem;
+}
+
+.inner-upper-frame{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container h3{
+  font-family: var(--neue-montreal);
+  font-size: 4.5rem;
+  color: var(--primary-color);
+  font-weight: 400;
+}
+
+.text-container p{
+  font-family: var(--neue-montreal);
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  width: 62%;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.btn-container{
+  display: flex;
+  gap: 1.9375rem;
 }
 
 .lower-frame{
@@ -282,6 +346,16 @@ input[type="email"]::placeholder{
 }
 
 @media screen and (max-width : 992px) {
+  .text-container h3{
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .text-container p{
+      width: 100%;
+      font-size: 1rem;
+  }
+
   .inner-lower-frame{
     flex-direction: column;
     gap: 4rem;
@@ -307,6 +381,11 @@ input[type="email"]::placeholder{
   }
 
 @media screen and (max-width : 475px) {
+
+  .btn-container{
+    flex-direction: column;
+    align-items: center;
+  }
 
   .inner-newsletter h3{
     font-size: 1.5rem;
