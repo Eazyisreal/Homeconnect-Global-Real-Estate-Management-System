@@ -30,5 +30,7 @@ class QuickLinksMixin:
         ]
         return context
 
+
+
 class HomePageView(QuickLinksMixin,TemplateView):
     template_name = 'home.html'

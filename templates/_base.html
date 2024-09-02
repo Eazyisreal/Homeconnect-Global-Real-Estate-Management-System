@@ -26,9 +26,9 @@
     <meta name="twitter:image" content="{% block twitter_image %}{% endblock %}">
   </head>
   <body>
-    <section class="wrapper">
+    <section class="">
       <header class="header">
-        <div class="inner-header">
+        <div class="inner-header wrapper">
           <img src="{% static 'img/logo.svg' %}" alt="logo">
           <ul class="nav-links">
             <li class="nav-items"><a href="#">About Us</a></li>
@@ -44,51 +44,53 @@
       {% block content %}
       {% endblock %}
       <footer class="footer">
-        <div class="upper-frame"></div>
-        <div class="lower-frame">
-            <div class="inner-lower-frame">
-                <div class="top-info-div">
-                    <div class="newsletter">
-                      <div class="inner-newsletter">
-                        <h3>Subscribe to <br/> our newsletter</h3>
-                        <div class="input-container">
-                          <input placeholder="Email Address" type="email" name="email" id="email">
-                          <button class="newsletter-btn"></button>
+      <div class="wrapper">
+          <div class="upper-frame"></div>
+          <div class="lower-frame">
+              <div class="inner-lower-frame">
+                  <div class="top-info-div">
+                      <div class="newsletter">
+                        <div class="inner-newsletter">
+                          <h3>Subscribe to <br/> our newsletter</h3>
+                          <div class="input-container">
+                            <input placeholder="Email Address" type="email" name="email" id="email">
+                            <button class="newsletter-btn"></button>
+                          </div>
                         </div>
+                        <p>Feel free to unsubscribe from these communications at any time. For more information on how to do so, our privacy practices, and our commitment to protecting your privacy, please review our Privacy Policy.</p>
                       </div>
-                      <p>Feel free to unsubscribe from these communications at any time. For more information on how to do so, our privacy practices, and our commitment to protecting your privacy, please review our Privacy Policy.</p>
                     </div>
+                    <div class="quick-links-grid">
+                      {% for link in quick_links %}
+                          <div class="quick-links-column">
+                              <h2>{{ link.title }}</h2>
+                              <ul class="quick-links-list">
+                                  {% for child in link.children %}
+                                      <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                      {% endfor %}
                   </div>
-                  <div class="quick-links-grid">
-                    {% for link in quick_links %}
-                        <div class="quick-links-column">
-                            <h2>{{ link.title }}</h2>
-                            <ul class="quick-links-list">
-                                {% for child in link.children %}
-                                    <li><a href="{{ child.url }}">{{ child.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+              </div>
 
-            <div class="outer-lower-frame">
-                <hr>
-                <div class="bottom-links">
-                    <h3>© Copyright 2024 Homeconnectng. All Rights Reserved</h3>
-                    <div class="social-links">
-                        <h3>Get In Touch</h3>
-                        <ul class="social-link-items">
-                            <li><a href=""><img src="{% static 'img/whatsapp.svg' %}" alt=""></a></li>
-                            <li><a href=""><img src="{% static 'img/facebook.svg' %}" alt=""></a></li>
-                            <li><a href=""><img src="{% static 'img/instagram.svg' %}" alt=""></a></li>
+              <div class="outer-lower-frame">
+                  <hr>
+                  <div class="bottom-links">
+                      <h3>© Copyright 2024 Homeconnectng. All Rights Reserved</h3>
+                      <div class="social-links">
+                          <h3>Get In Touch</h3>
+                          <ul class="social-link-items">
+                              <li><a href=""><img src="{% static 'img/whatsapp.svg' %}" alt=""></a></li>
+                              <li><a href=""><img src="{% static 'img/facebook.svg' %}" alt=""></a></li>
+                              <li><a href=""><img src="{% static 'img/instagram.svg' %}" alt=""></a></li>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
       </footer>
     </section>
   </body>
