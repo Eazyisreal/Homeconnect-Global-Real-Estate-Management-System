@@ -1,0 +1,151 @@
+
+.about {
+    background: 
+      radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%), 
+      url('/static/img/footer-background.svg') var(--primary-color) center; 
+    background-size: cover;
+    height: 100%;
+    padding: 2rem;
+    background-blend-mode: multiply;
+  }
+
+.inner-about{
+    display: flex;
+    padding: 10rem 4rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6.25rem;
+}
+
+.about-service-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+.about-service-text h3 {
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 3.625rem;
+    color: var(--white);
+  }
+  
+  .about-service-text p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--white);
+    width: 100%;
+  }
+
+  .about-btn{
+    background: var(--white);
+    color: var(--primary-color);
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: .625rem;
+    border-radius: 6.25rem;
+    cursor: pointer;
+    border: none;
+    width: 9.5rem;
+  }
+
+  .mission-container{
+    display: flex;
+    padding: 4rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner-mission-container{
+    display: flex;
+    gap: 6.25rem;
+    padding: 8rem 4rem;
+  }
+
+  .vision{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.vision h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 3.625rem;
+    color: var(--primary-color);
+}
+
+.vision p{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    width: 100%;
+    line-height: 1.6;
+}
+
+.agents{
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 4rem;
+    background-color: #ECF0F14D;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inner-agents{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 9.375rem;
+}
+
+.inner-agents h3{
+    font-family: var(--neue-montreal);
+    font-size: 3.625rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.reasons-to-join{
+    display: flex;
+    width: 100%;
+    gap: 6.725rem;
+}
+
+.reasons-to-join-items{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    justify-content: center;
+}
+
+.reasons-to-join-items h3{
+    font-size: 2.375rem;
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.items-parent{
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    padding-left: 2.5rem;
+}
+
+.items{
+    font-size: 1.125rem;
+    color: black;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: var(--neue-montreal);
+}

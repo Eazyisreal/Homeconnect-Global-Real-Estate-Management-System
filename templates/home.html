@@ -200,22 +200,8 @@
         </div>
      </section>
 
-     <!-- Partners Section -->
-      <section class="partners">
-        <div class="inner-partners wrapper">
-            <div class="partners-content">
-                <h3>Our Partners</h3>
-                <div class="partners-logo">
-                    <img src="{% static 'img/ace.svg' %}" alt="Partners Logo">
-                    <img src="{% static 'img/gtext.svg' %}" alt="Partners Logo">
-                    <img src="{% static 'img/audacia.svg' %}" alt="Partners Logo">
-                    <img src="{% static 'img/property-dey.svg' %}" alt="Partners Logo">
-                    <img src="{% static 'img/swift-panda.svg' %}" alt="Partners Logo">
-                    <img src="{% static 'img/drawboard.svg' %}" alt="Partners Logo">
-                </div>
-            </div>
-        </div>
-      </section>
+
+     {% include "partners.html" %}
 
       <!-- Services section -->
      <section class="services-large-container">
@@ -370,52 +356,7 @@
             </div>
         </div>
 
-        <div class="testimonials-container wrapper">
-            <div class="inner-testimonial-container">
-                <h3>Client Testimonials</h3>
-                <div class="scroller">
-                    <div class="testimonial-wrapper ">
-                        <div class="testimonial">
-                            <img src="{% static '/img/marvelous.svg' %}" alt="Image of a client">
-    
-                            <div class="testimonial-text">
-                                <p>I recently purchased land through Home Connect Global. Their team guided me through every step of the process with professionalism and dedication. I highly recommend their services to anyone looking to get verified land deals for themselves</p>
-    
-                                <div class="client">
-                                    <h4>Marvelous</h4>
-                                    <p>Land Owner</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <img src="{% static '/img/oyin.svg' %}" alt="Image of a client">
-    
-                            <div class="testimonial-text">
-                                <p>I recently purchased land through Home Connect Global. Their team guided me through every step of the process with professionalism and dedication. I highly recommend their services to anyone looking to get verified land deals for themselves</p>
-    
-                                <div class="client">
-                                    <h4>Marvelous</h4>
-                                    <p>Land Owner</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <img src="{% static '/img/marvelous.svg' %}" alt="Image of a client">
-    
-                            <div class="testimonial-text">
-                                <p>I recently purchased land through Home Connect Global. Their team guided me through every step of the process with professionalism and dedication. I highly recommend their services to anyone looking to get verified land deals for themselves</p>
-    
-                                <div class="client">
-                                    <h4>Marvelous</h4>
-                                    <p>Land Owner</p>
-                                </div>
-                            </div>
-                        </div>
-                  
-                    </div>
-                </div>
-            </div>
-        </div>
+      {% include "testimonials.html" %}
 
         <svg width="100%" height="20%%" viewBox="0 0 1364 796" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_568_2013" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1364" height="796">

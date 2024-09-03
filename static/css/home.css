@@ -155,7 +155,7 @@
   border-radius: 6.25rem;
   cursor: pointer;
   border: none;
-  width: 6.5rem;
+  width: 7.5rem;
 }
 
 .reset {
@@ -240,7 +240,7 @@
   border-radius: 6.25rem;
   cursor: pointer;
   border: 2px solid var(--primary-color);
-  width: 6.25rem;
+  width: 7.5rem;
 }
 
 .properties-grid-container {
@@ -373,6 +373,9 @@
   gap: 6rem;
 }
 
+.inner-service img{
+  border-radius:  1.25rem;
+}
 
 
 .services-text {
@@ -761,7 +764,7 @@
   cursor: pointer; 
   font-family: var(--neue-montreal);
   font-weight: 500;
-  width: 9.5rem;
+  width: 7.5rem;
 }
 
 @media screen and (max-width : 992px) {

@@ -1,0 +1,79 @@
+{% extends "_base.html" %}
+{% load static %}
+
+
+{% block title %}About Us | HomeConnect Global{% endblock %}
+{% block meta_description %}Learn more about HomeConnect Global, our mission, vision, and the dedicated team behind our success.{% endblock %}
+{% block meta_keywords %}e-Swift, real estate, about us, real estate company, property experts, real estate services{% endblock %}
+{% block css %}{% static 'css/about.css' %}{% endblock %}
+{% block other_css %}{% static 'css/home.css' %}{% endblock %}
+
+{% block og_title %}About Us | HomeConnect Global{% endblock %}
+{% block og_description %}Discover the story behind HomeConnect Global, our core values, and the team committed to helping you find your dream property.{% endblock %}
+{% block og_image %}{% static 'img/logo.svg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+{% block og_type %}website{% endblock %}
+
+{% block twitter_title %}About Us | HomeConnect Global{% endblock %}
+{% block twitter_description %}Learn more about HomeConnect Global, our mission, vision, and the dedicated team behind our success.{% endblock %}
+{% block twitter_image %}{% static 'img/logo.svg' %}{% endblock %}
+
+
+{% block content%}
+<main>
+    <!-- about -->
+    <section class="about">
+        <div class="inner-about wrapper">
+            <div class="inner-service wrapper">    
+                <div class="know">
+                    <div class="about-service-text">
+                        <h3>Get to know us</h3>
+                        <p>Welcome to Home Connect Nigeria, where your real estate dreams become a reality. As a leading real estate company in Nigeria, we specialize in the sale, rental, and management of a diverse range of properties. Our mission is to provide exceptional service, ensuring that every client finds the perfect property to meet their needs. At Home Connect Nigeria, we are committed to helping you achieve your real estate goals. We promise transparent, honest, and reliable services, ensuring your complete satisfaction. Let us be your trusted partner in all your real estate endeavors.</p>
+                    </div>
+                    <button type="submit" class="about-btn">Meet the team</button>
+                </div>
+                <img src="{% static 'img/get-to-know-us.svg' %}" alt="Image that signifies unity">
+            </div>
+        </div>
+    </section>
+    <!-- Mission && Vision -->
+
+    <div class="mission-container">
+        <div class="inner-mission-container">
+            <div class="vision">
+                <h3>Our Vision</h3>
+                <p>Our vision is to become the leading provider of real estate services, recognized for our commitment to excellence and integrity. We aspire to redefine industry standards and set new benchmarks for quality and professionalism.</p>
+            </div>
+            <div class="vision">
+                <h3>Our Mission</h3>
+                <p>Our mission is to empower our clients with the knowledge and resources they need to make informed decisions about their real estate investments. We are dedicated to delivering exceptional value and exceeding customer expectations at every opportunity</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- agents -->
+     <div class="agents">
+        <div class="inner-agents">
+            <h3>Join our professional agents</h3>
+            <div class="reasons-to-join">
+                <img src="{% static 'img/team.svg' %}" alt="Team Image">
+                <div class="reasons-to-join-items">
+                    <h3>
+                        Why you should join?
+                    </h3>
+                            <ol class="items-parent">
+                                <li class="items">High Earning Potential: We offer a generous commission structure.</li>
+                                <li class="items">Incentives and Rewards: Agents have access to various incentives and rewards for exceptional performance.</li>
+                                <li class="items">Comprehensive Training and Support: We provide comprehensive training and support to help agents succeed in their roles.</li>
+                                <li class="items">Transparent and Fair Policies: This transparency can help build trust and loyalty among agents.</li>
+                                <li class="items">Collaborative Work Environment: Your brokerage fosters a collaborative work environment where agents can learn from each other, share ideas, and support one another.</li>
+                            </ol>
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     {% include "partners.html" %}
+
+</main>
+{% endblock %}

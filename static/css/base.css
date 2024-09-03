@@ -346,6 +346,11 @@ input[type="email"]::placeholder{
 }
 
 @media screen and (max-width : 992px) {
+  
+input[type="email"]::placeholder{
+  font-size: 1rem;
+}
+
   .text-container h3{
     font-size: 2rem;
     font-weight: 500;
