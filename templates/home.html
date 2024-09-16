@@ -3,16 +3,16 @@
 
 {% block title %}Home | HomeConnect Global{% endblock %}
 {% block meta_description %}Discover your dream home with HomeConnect Global. We offer a wide range of properties to meet all your real estate needs.{% endblock %}
-{% block meta_keywords %}real estate, e-Swift, property listings, homes for sale, real estate services, buy property{% endblock %}
+{% block meta_keywords %}real estate,HomeConnect Global, property listings, homes for sale, real estate services, buy property{% endblock %}
 {% block css %}{% static 'css/home.css' %}{% endblock %}
 
-{% block og_title %}Home | e-Swift Propertymart{% endblock %}
+{% block og_title %}Home |HomeConnect Global{% endblock %}
 {% block og_description %}Discover your dream home with HomeConnect Global. Explore our wide range of property listings and find the perfect place to call home.{% endblock %}
 {% block og_image %}{% static 'img/logo.svg' %}{% endblock %}
 {% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
 {% block og_type %}website{% endblock %}
 
-{% block twitter_title %}Home | e-Swift Propertymart{% endblock %}
+{% block twitter_title %}Home |HomeConnect Global{% endblock %}
 {% block twitter_description %}Discover your dream home with  HomeConnect Global. Explore our wide range of property listings and find the perfect place to call home.{% endblock %}
 {% block twitter_image %}{% static 'img/logo.svg' %}{% endblock %}
 
@@ -25,7 +25,7 @@
             <source src="{% static 'img/hero-background.mp4' %}" type="video/mp4">
           </video>
         <div class="video-overlay"></div>
-        <div class="inner-hero">
+        <div class="inner-hero wrapper">
             <div class="top-hero">
                 <h1>
                     Uncover the best offers on the real estate market.
@@ -80,123 +80,126 @@
                 </div>
             </div>
             <div class="properties-grid-container">
-                <div class="properties-grid">
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+                <div class="properties-grid-container">
+                    <div class="properties-grid">
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
-                            </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
-                            </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
-                            </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
-                            </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
-                            </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-top">
-                                <div class="property-details-top-inner">
-                                    <p>Rent</p>
-                                    <p>Ekpoma, Edo State</p>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
                                 </div>
-                                <p>BOLDION HOSTEL 4 UNIT ...</p>
                             </div>
-
-                            <div class="properties-details-bottom">
-                                <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                <p>400,000 <span>/ Annually</span></p>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
+                                </div>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
+                                </div>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
+                            </div>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
+                                </div>
+    
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+             
+            </div>
         </div>
      </section>
 
@@ -243,7 +246,9 @@
                     <h3>Get to know us</h3>
                     <p>Welcome to Home Connect Nigeria, where your real estate dreams become a reality. As a leading real estate company in Nigeria, we specialize in the sale, rental, and management of a diverse range of properties. Our mission is to provide exceptional service, ensuring that every client finds the perfect property to meet their needs. At Home Connect Nigeria, we are committed to helping you achieve your real estate goals. We promise transparent, honest, and reliable services, ensuring your complete satisfaction. Let us be your trusted partner in all your real estate endeavors.</p>
                 </div>
-                <button type="submit" class="advanced-search-btn">Learn more</button>
+                <a href="/about-us">
+                     <button type="submit" class="advanced-search-btn">Learn more</button>
+                </a>
             </div>
         </div>
      </section>

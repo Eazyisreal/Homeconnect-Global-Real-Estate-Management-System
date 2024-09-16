@@ -1,0 +1,96 @@
+
+.management {
+  background:
+    radial-gradient(circle at center top, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
+    url('/static/img/footer-background.svg') var(--primary-color) center;
+  background-size: cover;
+  height: 100dvh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; 
+  background-blend-mode: multiply;
+}
+
+.inner-management {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 3.625rem;
+  padding: 0; 
+}
+
+
+  .management-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .management-text-container h3{
+    font-family: var(--neue-montreal);
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 5.5rem;
+    width: 80%;
+    line-height: 1.2;
+  }
+  
+  .management-text-container p{
+    font-family: var(--neue-montreal);
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.375rem;
+    width: 38%;
+    line-height: 1.8;
+  }
+
+  .management-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid;
+    padding: .625rem 1.125rem;
+    border-radius: 6.25rem;
+    background: white;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    white-space: no-wrap;
+    cursor: pointer;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    width: 7.5rem;
+  }
+
+
+  .management-services-provided-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: white;
+    padding: 4rem 2rem;
+    border-radius: 1.25rem;
+
+}
+
+.management-services-provided-inner:last-child {
+    grid-column: 2;
+  }
+
+
+  @media screen and (min-width: 1300px) {
+
+  .management-text-container h3{
+    width: 60%;
+  }
+    
+  }

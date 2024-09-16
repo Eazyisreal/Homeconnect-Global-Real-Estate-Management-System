@@ -1,0 +1,789 @@
+.hero-properties {
+    background-image: url(/static/img/properties.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.properties-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4.25rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.parent-hero-inner-properties {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-inner-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.hero-inner-properties h3 {
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: var(--white);
+    font-size: 4.25rem;
+}
+
+.hero-inner-properties p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    color: var(--white);
+    font-size: 1.375rem;
+    width: 60%;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.property-display {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 4rem 2rem 10rem;
+    background-color: #ECF0F14D;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.filter-items {
+    display: flex;
+    border: 1px solid var(--primary-color);
+    border-radius: .3125rem;
+    padding: .625rem 1rem .625rem 1.25rem;
+    gap: 1.5rem;
+}
+
+.filter-items h4 {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+
+}
+
+.property-display-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 90%;
+}
+
+
+.property-display-card {
+    background-color: var(--white);
+    border-radius: 1.25rem;
+    padding: 2rem;
+}
+
+.property-display-card-inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2.9375rem;
+}
+
+.property-image {
+    width: 100%;
+}
+
+.property-unit-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.property-unit-details top {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.property-unit-detail {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.property-location {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.property-location p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.property-unit-detail h3 {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.8125rem;
+    color: var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
+.property-unit-detail p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+.property-unit-details-bottom {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.property-unit-details-bottom p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 3.375rem;
+    color: var(--primary-color);
+}
+
+.property-unit-details-bottom span {
+    font-size: 2rem;
+}
+
+.pagination {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.pagination-text-container {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.pagination-text {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.pagination-text p,
+.pagination-text-container p {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.pagination-text span {
+    display: flex;
+    align-items: center;
+    border: .5px solid var(--primary-color);
+    border-radius: .3125rem;
+    padding: .0625rem .5rem;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+
+.pagination-numbers {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+
+.pagination-number {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+
+}
+
+.pagination-number span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: .5px solid var(--primary-color);
+    border-radius: .3125rem;
+    padding: .5rem 1.125rem;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+
+
+.properties-details-hero {
+    background:
+        radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
+        url('/static/img/footer-background.svg') var(--primary-color) center;
+    background-size: cover;
+    height: 100%;
+    padding: 10rem 2rem;
+    background-blend-mode: multiply;
+}
+
+.properties-details-hero-inner{
+    display: flex;
+    flex-direction: column;
+    gap: 6.25rem;
+    padding: 4rem;
+}
+
+.property-link{
+    text-decoration: none;
+    color: black;
+
+}
+
+.property-link:visited{
+    color: black;
+}
+
+.property-grid img{
+    width:  100%;
+    border-radius: .625rem;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 32.82%);
+    gap:  1.25rem .625rem;
+  }
+
+.property-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.property-text-info{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+}
+
+.property-text-info h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: white;
+    font-size: 1.835rem;
+    line-height: 1.4;
+}
+
+.property-text-info p{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    color: white;
+    font-size: .9718rem;
+    line-height: 1.8;
+}
+
+.property-price{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.property-price img{
+    width:  2rem;
+}
+
+.property-price p{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    color: white;
+    font-size: 2.8125rem;
+}
+
+.property-price span{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.property-information{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.property-information-left{
+    display: flex;
+    flex-direction: column;
+    gap: 3.3125rem;
+}
+
+.property-information-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3.3125rem;
+}
+
+.property-items{
+    list-style: none;
+    font-family: var(--neue-montreal);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+
+.details-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 6rem;
+  }
+
+
+  .inner-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 6rem;
+  }
+
+  .features-container{
+    background-color: #ECF0F14D;
+    border-radius: 1.25rem;
+    padding: 4rem 2rem;
+  }
+
+  .inner-features-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3.75rem;
+  }
+
+  .inner-features-container h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 2.625rem;
+    color: var(--primary-color);
+  }
+
+  .features{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .features h4{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  .contact-container {
+    background:
+        radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
+        url('/static/img/footer-background.svg') var(--primary-color) center;
+    background-size: cover;
+    height: 100%;
+    padding: 10rem 4rem;
+    background-blend-mode: multiply;
+}
+
+  .inner-contact-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:  2rem ;
+  }
+
+  .top-container{
+    display: flex;
+    width: 100%;
+    gap:  18rem ;
+  }
+
+
+  .contact-form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.625rem;
+    width: 50%;
+  }
+
+  .contact-form-container h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--white);
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;  
+  }
+
+  .form-details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .label{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--white);
+  }
+
+
+  .form-details input{
+    outline: none;
+    border: 1px solid white;
+    border-radius: .3125rem;
+    padding: .625rem 1.25rem;
+    width: 100%;
+    height: 3.5rem;
+    background: transparent;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--white);
+  }
+
+  .form-details input::placeholder{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--white);
+  }
+
+  .textarea{
+    outline: none;
+    border: 1px solid white;
+    border-radius: .3125rem;
+    padding: .625rem 1.25rem;
+    width: 100%;
+    height: 10rem;
+    background: transparent;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--white);
+    resize: none;
+  }
+
+  .textarea::placeholder{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--white);
+  }
+
+.form-submit{
+    height: 3.5rem;
+    border: 1px solid white;
+    border-radius: .3125rem;
+    background: var(--white);
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.agent-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.625rem;
+    width: 50%;
+}
+
+.agent-container h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.agent-container img{
+    border-radius: .625rem;
+}
+
+.agent-details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.agent-details h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.agent-details p{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--white);
+}
+
+.map-width  {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-width h2{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: var(--white);
+    font-size: 3.625rem;
+}
+
+.map{
+    width: 90%;
+    border-radius: 1.25rem;
+    margin-bottom: -30%;
+}
+
+.paginated-properties{
+    display: flex;
+    flex-direction: column;
+    padding-top: 8rem;
+    gap: 3.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginated-properties h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: var(--white);
+    font-size: 3.625rem;
+    color: var(--primary-color);
+}
+
+.services-text span {
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--black);
+    width: 70%;
+  }
+
+  
+@media screen and (max-width : 992px) {
+
+    .properties-details-hero-inner{
+        padding: 0;
+    }
+
+    .property-grid{
+        grid-template-columns: repeat(2, 49.2%);
+    }
+
+    .property-info, .details-container{
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+
+    .top-container{
+        flex-direction: column;
+        gap: 6.5rem
+    }
+
+    .contact-container{
+        padding: 4rem 2rem 3.5rem;
+    }
+
+    .property-text-info, .property-information, .contact-form-container, .agent-container{
+        width: 100%;
+    }
+
+    .features-container{
+        display: none;
+    }
+
+    .hero-inner-properties p {
+        width: 100%;
+    }
+
+    .property-display-card-inner {
+        flex-direction: column;
+    }
+
+    .property-image,
+    .property-unit-details,
+    .property-display-cards {
+        width: 100%;
+    }
+
+    .pagination-text-container {
+        display: none;
+    }
+
+    .map{
+        margin-bottom: -40%;
+    }
+
+    .paginated-properties{
+        padding: 35% 2rem 0;
+    }
+    .services-text span {
+        width: 100%;
+    }
+
+
+}
+
+
+@media screen and (max-width : 475px) {
+
+    .hero-properties {
+        height: 145dvh;
+    }
+
+    .hero-inner-properties {
+        width: 100%;
+    }
+
+    .hero-inner-properties h3 {
+        font-size: 2rem;
+    }
+
+    .hero-inner-properties p {
+        font-size: 1rem;
+        width: 80%;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+ 
+    .property-svg {
+        display: block;
+    }
+
+    .property-location p {
+        font-size: 1.125rem;
+    }
+
+    .property-ubit-detail h3 {
+        font-size: 1.5rem;
+    }
+
+    .property-unit-details-bottom p {
+        font-size: 1.5rem;
+    }
+
+    .property-unit-details-bottom span {
+        font-size: .875rem;
+    }
+
+    .property-unit-details-bottom img {
+        width: 1.125rem;
+    }
+
+    .property-display-card{
+        padding: 1rem;
+    }
+
+    .property-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .properties-details-hero{
+        padding: 10rem 2rem 5rem;
+    }
+
+    .property-text-info h3{
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    .property-text-info p{
+        font-size: 1.125rem;
+    }
+
+    .property-price p{
+        font-size: 1.75rem;
+        font-weight: 400;
+    }
+    .property-price span{
+        font-size: .85rem;
+        font-weight: 400;
+    }
+
+    .property-price img{
+        width: 1.5rem;
+    }
+
+    .contact-form-container h3, .paginated-properties h3, .agent-container h3, .map-width h2{
+        font-size: 1.75rem;
+    }
+
+    .map{
+        width: 100%;
+        margin-bottom: -80%;
+    }
+
+    .label, .form input::placeholder{
+        font-size: 1.125rem;
+    }
+
+    .agent-details h3{
+        font-size: 1.25rem;
+    }
+    .agent-details p{
+        font-size: 1.125rem;
+    }
+
+
+    .paginated-properties{
+        padding: 60% 0 4rem;
+    }
+
+}

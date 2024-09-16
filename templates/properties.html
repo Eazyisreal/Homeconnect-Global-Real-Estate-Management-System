@@ -1,0 +1,281 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Properties | Home Connect Global{% endblock %}
+{% block meta_description %}Explore our diverse range of properties at Home Connect Global. Find your perfect property today.{% endblock %}
+{% block meta_keywords %}Home Connect Global, real estate, properties, property listings, homes for sale, real estate services{% endblock %}
+{% block other_css %}{% static 'css/properties.css' %}{% endblock %}
+{% block css %}{% static 'css/home.css' %}{% endblock %}
+
+{% block og_title %}Properties | Home Connect Global{% endblock %}
+{% block og_description %}Explore our diverse range of properties at Home Connect Global. Find your perfect property today.{% endblock %}
+{% block og_image %}{% static 'img/properties_og_image.jpg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+{% block og_type %}website{% endblock %}
+
+{% block twitter_title %}Properties | Home Connect Global{% endblock %}
+{% block twitter_description %}Explore our diverse range of properties at Home Connect Global. Find your perfect property today.{% endblock %}
+{% block twitter_image %}{% static 'img/properties_twitter_image.jpg' %}{% endblock %}
+
+
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <section class="hero-properties">
+        <div class="properties-container wrapper">
+            <div class="parent-hero-inner-properties">
+                <div class="hero-inner-properties">
+                    <h3>Properties</h3>
+                    <p>Explore a wide range of properties for rent and sale, expertly managed for your convenience. </p>
+                </div>
+            </div>
+    
+            <div class="advanced-search-container">
+                <div class="advanced-search">
+                    <div class="top-search-container">
+                        <div class="search-items">
+                            <h3>Location</h3>
+                            <div class="project-search-form relative">
+                                <img loading="lazy" class="absolute" src="{% static 'img/location.svg' %}" alt="Search Icon" />
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="City, State" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                        <div class="search-items">
+                            <h3>Property Types</h3>
+                            <div class="project-search-form relative">
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="All Category" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                        <div class="search-items">
+                            <h3>Listing Type</h3>
+                            <div class="project-search-form relative">
+                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="Rent" value="{{ request.GET.location }}">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="advanced-search-btn-container">
+                        <button type="submit" class="advanced-search-btn">Search</button>
+                        <button class="reset" type="reset">Reset All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+     <section class="property-display">
+        <div class="filters">
+            <div class="filter-items">
+                <h4>3 Bed Rooms</h4>
+                <img src="{% static '/img/dropdown.svg' %}" alt="">
+            </div>
+            <div class="filter-items">
+                <h4>Low to high</h4>
+                <img src="{% static '/img/dropdown.svg' %}" alt="">
+            </div>
+            <div class="filter-items">
+                <h4> 4 Bathrooms </h4>
+                <img src="{% static '/img/dropdown.svg' %}" alt="">
+            </div>
+        </div>
+
+        <div class="property-display-cards">
+            <a class="property-link" href="properties_details">
+                <div class="property-display-card">
+                    <div class="property-display-card-inner">
+                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+    
+                            <div class="property-unit-details">
+                                <div class="property-unit-details-top">
+                                    <div class="property-unit-detail">
+    
+                                        <div class="property-location">
+                                            <p>Rent</p>
+                                            <p>Ekpoma, Edo State</p>
+                                        </div>
+                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+    
+    
+                                    </div>
+                                    
+                            
+                                </div>
+                                <div class="property-unit-details-bottom">
+                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                    <p>400,000 <span>/ Annually</span></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </a>
+            <div class="property-display-card">
+                <div class="property-display-card-inner">
+                        <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+
+                        <div class="property-unit-details">
+                            <div class="property-unit-details-top">
+                                <div class="property-unit-detail">
+
+                                    <div class="property-location">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                    <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+
+
+                                </div>
+                                
+                        
+                            </div>
+                            <div class="property-unit-details-bottom">
+                                <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                <p>400,000 <span>/ Annually</span></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="property-display-card">
+                <div class="property-display-card-inner">
+                        <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+
+                        <div class="property-unit-details">
+                            <div class="property-unit-details-top">
+                                <div class="property-unit-detail">
+
+                                    <div class="property-location">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                    <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+
+
+                                </div>
+                                
+                        
+                            </div>
+                            <div class="property-unit-details-bottom">
+                                <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                <p>400,000 <span>/ Annually</span></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="property-display-card">
+                <div class="property-display-card-inner">
+                        <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+
+                        <div class="property-unit-details">
+                            <div class="property-unit-details-top">
+                                <div class="property-unit-detail">
+
+                                    <div class="property-location">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                    <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+
+
+                                </div>
+                                
+                        
+                            </div>
+                            <div class="property-unit-details-bottom">
+                                <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                <p>400,000 <span>/ Annually</span></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="property-display-card">
+                <div class="property-display-card-inner">
+                        <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+
+                        <div class="property-unit-details">
+                            <div class="property-unit-details-top">
+                                <div class="property-unit-detail">
+
+                                    <div class="property-location">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                    <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+
+
+                                </div>
+                                
+                        
+                            </div>
+                            <div class="property-unit-details-bottom">
+                                <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                <p>400,000 <span>/ Annually</span></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="property-display-card">
+                <div class="property-display-card-inner">
+                        <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+
+                        <div class="property-unit-details">
+                            <div class="property-unit-details-top">
+                                <div class="property-unit-detail">
+
+                                    <div class="property-location">
+                                        <p>Rent</p>
+                                        <p>Ekpoma, Edo State</p>
+                                    </div>
+                                    <h3>BOLDION HOSTEL 4 UNIT ...</h3>
+                                    <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
+
+
+                                </div>
+                                
+                        
+                            </div>
+                            <div class="property-unit-details-bottom">
+                                <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
+                                <p>400,000 <span>/ Annually</span></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+                
+            <div class="pagination">
+                <div class="pagination-text-container">
+                    <div class="pagination-text">
+                        <p>Showing</p> <span>1</span>
+                    </div>
+                    <p>Of 150</p>
+                </div>
+
+                <div class="pagination-numbers">
+                    <img src="{% static 'img/previous.svg' %}" alt="Previous button">
+                    <div class="pagination-number">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <p>...</p>
+                        <span>50</span>
+                    </div>
+                    <img src="{% static 'img/next.svg' %}" alt="Next button">
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <svg class="property-svg" width="100%" height="20%%" viewBox="0 0 1364 796" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_568_2013" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1364" height="796">
+        <path d="M0 0.401855H1364V795.368H0V0.401855Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_568_2013)">
+        <path d="M1364 676H1258.82V544.744H1211.44V676H1160.08V457.435H1107.68V676H1068.88V497.289H990.519V676H905.691V294.225H762.915V676H731.635V412.997H682.571V676H639.591V149.983H545.337V676H505.707V480.212H438.232V676H413.654V459.334H347.853V676H256.333V339.78H205.593V676H167.639V539.044H100.155V676H0V669.006H93.9963V532.061H173.798V669.006H199.435V332.786H262.501V669.006H341.686V452.34H419.821V669.006H432.064V473.228H511.866V669.006H539.169V143H645.749V669.006H676.412V406.003H737.803V669.006H756.748V287.242H911.859V669.006H984.351V490.306H1075.03V669.006H1101.51V450.451H1166.25V669.006H1205.27V537.75H1264.99V669.006H1364V676Z" fill="#E5E8EA"/>
+        </g>
+    </svg>
+{% endblock %}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% block css %}{% endblock %}">
     <link rel="stylesheet" href="{% block other_css %}{% endblock %}">
+    <link rel="stylesheet" href="{% block more_css %}{% endblock %}">
     <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}" />
     {% block extra_head %}{% endblock %}
     {% load livereload_tags %}
@@ -29,13 +30,13 @@
     <section class="">
       <header class="header">
         <div class="inner-header wrapper">
-          <a href="/">
+          <a class="logo" href="/">
             <img src="{% static 'img/logo.svg' %}" alt="logo">
           </a>
           <ul class="nav-links">
             <li class="nav-items"><a href="/about-us">About Us</a></li>
-            <li class="nav-items"><a href="#">Properties</a></li>
-            <li class="nav-items"><a href="#">Management</a></li>
+            <li class="nav-items"><a href="/properties">Properties</a></li>
+            <li class="nav-items"><a href="/management">Management</a></li>
             <li class="nav-items"><a href="#">Contact Us</a></li>
           </ul>
           <button class="btn">

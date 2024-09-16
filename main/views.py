@@ -33,9 +33,16 @@ class QuickLinksMixin:
 
 class HomePageView(QuickLinksMixin,TemplateView):
     template_name = 'home.html'
-    
-    
-    
-class AboutPageView(TemplateView):
+       
+class AboutPageView(QuickLinksMixin,TemplateView):
     template_name = 'about.html'
+       
+class TeamPageView(QuickLinksMixin,TemplateView):
+    template_name = 'team.html'
+class PropertiesPageView(QuickLinksMixin,TemplateView):
+    template_name = 'properties.html'
+class ManagementPageView(QuickLinksMixin,TemplateView):
+    template_name = 'management.html'
+class PropertiesDetailsPageView(QuickLinksMixin,TemplateView):
+    template_name = 'properties_details.html'
 
