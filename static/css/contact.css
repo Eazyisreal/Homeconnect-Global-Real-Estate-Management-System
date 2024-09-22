@@ -1,0 +1,325 @@
+.contact {
+    background:
+      radial-gradient(circle at center top, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
+      url('/static/img/footer-background.avif') var(--primary-color) center;
+    background-size: cover;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-blend-mode: multiply;
+  }
+  
+  .inner-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 3.625rem;
+    padding: 0;
+  }
+  
+  
+  .contact-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-text-container h3 {
+    font-family: var(--neue-montreal);
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 4.25rem;
+    width: 48%;
+    line-height: 1.2;
+  }
+
+
+  .contact-container{
+    padding: 10rem 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9.35rem;
+    background-color: #ECF0F14D;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/static/img/properties-background.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .svg-wrapper{
+    background-color: #ECF0F14D;
+    background-image: url(/static/img/properties-background.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .container-flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 6.25rem;
+  }
+
+  .contact-info-container{
+    display: flex;
+    width: 90%;
+    border-radius: 1.125rem;
+    margin-top: -22rem;
+    padding: 4rem 8rem;
+    z-index: 2;
+    background-color: white;
+  }
+
+
+  .contact-text-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+  }
+
+  .top-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+  }
+
+
+  .top-container h3{
+    font-family: var(--neue-montreal);
+    color: var(--primary-color);
+    font-size: 3.125rem;
+    font-weight: 400;
+  }
+
+
+  .contact-text-info p{
+    font-family: var(--neue-montreal);
+    font-size: 1.125rem;
+    font-weight: 400;
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  .contact-details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .contact-details p{
+    font-family: var(--neue-montreal);
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  .contact-details span{
+    font-family: var(--neue-montreal);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  
+
+  .contact-form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.625rem;
+  }
+
+  .contact-form-container h3{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    font-size: 2rem;
+    color: black;
+  }
+
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;  
+    width: 50%;
+  }
+
+  .form-details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .label{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--black);
+  }
+
+
+  .form-details input{
+    outline: none;
+    border: 1px solid #0000000D;
+    border-radius: .3125rem;
+    padding: .625rem 1.25rem;
+    width: 100%;
+    height: 3.5rem;
+    background: transparent;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--black);
+  }
+
+  .form-details input::placeholder{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--black);
+  }
+
+  .textarea{
+    outline: none;
+    border: 1px solid #0000000D;
+    border-radius: .3125rem;
+    padding: .625rem 1.25rem;
+    width: 100%;
+    height: 10rem;
+    background: transparent;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--black);
+    resize: none;
+  }
+
+  .textarea::placeholder{
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--black);
+  }
+
+.form-submit{
+    height: 3.5rem;
+    border: 1px solid #0000000D;
+    border-radius: .3125rem;
+    background: var(--primary-color);
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: white;
+}
+
+
+
+.map-width  {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-width h2{
+    font-family: var(--neue-montreal);
+    font-weight: 400;
+    color: var(--primary-color);
+    font-size: 3.625rem;
+}
+
+.map{
+    width: 90%;
+    border-radius: 1.25rem;
+}
+
+
+@media screen and (max-width: 992px){
+.contact-text-container h3{
+    width: 90%;
+}
+
+    .contact-container{
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .container-flex{
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .contact-info-container{
+        flex-direction: column;
+        gap: 3rem;
+        padding: 4rem;
+    }
+
+    .contact-text-info{
+        width: 100%;
+    }
+
+    .form{
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media screen and (max-width : 475px) {
+
+    .contact-container{
+        padding: 2rem 2rem 32rem;
+        gap: 4rem;
+    }
+
+    .contact-info-container{
+        padding: 2rem;
+        width: 100%;
+        margin-top: -18rem;
+    }
+
+    .top-container h3{
+        font-size: 1.75rem;
+    }
+
+    .contact-details p, .contact-details span{
+        font-size: 1rem;
+    }
+
+
+    .contact-text-container h3{
+        font-size: 1.75rem;
+        width: 100%;
+    }
+
+
+    .map-width h2{
+        font-size: 1.75rem;
+    }
+
+    .map{
+        width: 100%;
+        margin-bottom: -80%;
+    }
+
+    .contact-form-container h3{
+        font-size: 1.75rem;
+    }
+    .label, .form input::placeholder{
+        font-size: 1.125rem;
+    }
+
+}

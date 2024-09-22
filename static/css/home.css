@@ -23,6 +23,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
+  opacity: 0;
 }
 
 .inner-hero {
@@ -52,6 +53,7 @@
   color: var(--white);
   width: 60%;
   line-height: 1.25;
+  transform: translateY(30px); 
 }
 
 .hero p {
@@ -61,6 +63,7 @@
   color: var(--white);
   width: 35%;
   line-height: 1.6;
+  transform: translateY(30px); 
 }
 
 .advanced-search-container {
@@ -106,6 +109,7 @@
 .project-search-form {
   display: flex;
   gap: 1.25rem;
+  width: 100%;
 }
 
 .relative {
@@ -116,7 +120,7 @@
   position: absolute;
   top: 20%;
   padding: 0 0.62rem;
-  width: 3rem;
+  /* width: 3rem; */
 }
 
 
@@ -174,7 +178,7 @@
 
 
 .properties {
-  background-image: url(/static/img/properties-background.svg);
+  background-image: url(/static/img/properties-background.avif);
   background-color: rgba(255, 255, 255, 0.15);
   background-repeat: no-repeat;
   background-size: cover;
@@ -182,7 +186,7 @@
 }
 
 .large-area {
-  background-image: url(/static/img/properties-background.svg);
+  background-image: url(/static/img/properties-background.avif);
   background-color: rgba(255, 255, 255, 0.15);
   background-repeat: no-repeat;
   background-size: cover;
@@ -190,7 +194,7 @@
 }
 
 .services-large-container {
-  background-image: url(/static/img/properties-background.svg);
+  background-image: url(/static/img/properties-background.avif);
   background-color: rgba(255, 255, 255, 0.15);
   background-repeat: no-repeat;
   background-size: cover;
@@ -341,7 +345,7 @@
 .partners {
   background:
     linear-gradient(to right, #002366, #0046CC),
-    url('/static/img/partners-background.svg') center;
+    url('/static/img/partners-background.avif') center;
   background-size: cover;
   height: 100%;
   padding: 10rem 2rem;
@@ -438,6 +442,14 @@
   color: var(--black);
   width: 80%;
 }
+.service-info {
+  font-family: var(--neue-montreal);
+  font-weight: 500;
+  font-size:rem;
+  line-height: 1.6;
+  color: var(--black);
+  width: 100%;
+}
 
 .services-offered {
   display: flex;
@@ -484,7 +496,7 @@
 .managed-properties {
   background:
     radial-gradient(circle at top right, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 30%),
-    url('/static/img/footer-background.svg') var(--primary-color) center;
+    url('/static/img/footer-background.avif') var(--primary-color) center;
   background-size: cover;
   height: 100%;
   padding: 10rem 2rem;
@@ -867,7 +879,7 @@
   .services-text p,
   .service-text p {
     width: 100%;
-  }
+  } 
 
   .managed-properties-text-container p {
     width: 60%;
@@ -877,6 +889,23 @@
 
 
 @media screen and (max-width : 475px) {
+
+
+  .cta-container{
+    padding: 0;
+  }
+
+  .managed-properties{
+    padding: 4rem 1.5rem;
+  }
+
+  .inner-properties, .inner-managed-properties{
+    gap : 3.25rem;
+  }
+
+  .advanced-search-input{
+    font-size: .75rem;
+  }
 
   .inner-hero {
     top: 20%;
@@ -894,9 +923,9 @@
 
   }
 
-  .large-area {
+  /* .large-area {
     padding: 5rem 2rem 20rem;
-  }
+  } */
 
   svg {
     display: none;
@@ -911,7 +940,7 @@
   }
 
   .testimonials-container {
-    padding: 4rem 0 0;
+    padding: 4rem 0 12rem;
   }
 
   .inner-testimonial-container h3 {
@@ -955,6 +984,7 @@
   .hero h1 {
     width: 90%;
     font-size: 2rem;
+    
   }
 
   .hero p {

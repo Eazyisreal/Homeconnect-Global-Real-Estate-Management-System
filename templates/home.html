@@ -207,39 +207,46 @@
      {% include "partners.html" %}
 
       <!-- Services section -->
-     <section class="services-large-container">
+    <section class="services-large-container">
         <div class="inner-service wrapper">
             <div class="services-text">
                 <h3>Services We Offer</h3>
-                <p id="service-description">At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today.</p>
+                <p id="service-description">
+                    At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today.
+                </p>
             </div>
             <div class="services-offered">
                 <div class="services-container" data-service="rental">
-                <div class="services">
-                    <h3>Property Rental</h3>
-                    <img src="{% static 'img/open-arrow.svg' %}" alt="">
+                    <div class="services">
+                        <h3>Property Rental</h3>
+                        <img src="{% static 'img/closed-arrow.svg' %}" alt="">
+                    </div>
+                    <hr>
+                    <p class="service-info" style="display: none;">At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today.</p>
                 </div>
-                <hr>
-                </div>
+
                 <div class="services-container" data-service="sales">
-                <div class="services">
-                    <h3>Property Sales</h3>
-                    <img src="{% static 'img/closed-arrow.svg' %}" alt="">
+                    <div class="services">
+                        <h3>Property Sales</h3>
+                        <img src="{% static 'img/closed-arrow.svg' %}" alt="">
+                    </div>
+                    <hr>
+                    <p class="service-info" style="display: none;">Explore our property sales service, offering a curated selection of homes for sale. Our team will guide you through every step of buying your dream home.</p>
                 </div>
-                <hr>
-                </div>
+
                 <div class="services-container" data-service="management">
-                <div class="services">
-                    <h3>Property Management</h3>
-                    <img src="{% static 'img/closed-arrow.svg' %}" alt="">
-                </div>
-                <hr>
+                    <div class="services">
+                        <h3>Property Management</h3>
+                        <img src="{% static 'img/closed-arrow.svg' %}" alt="">
+                    </div>
+                    <hr>
+                    <p class="service-info" style="display: none;">Our property management service ensures that your properties are well-maintained and managed efficiently. We handle everything from tenant relations to property maintenance.</p>
                 </div>
             </div>
         </div>
 
         <div class="inner-service wrapper">
-            <img src="{% static 'img/get-to-know-us.svg' %}" alt="Image that signifies unity">
+            <img src="{% static 'img/get-to-know-us.avif' %}" alt="Image that signifies unity">
 
             <div class="know">
                 <div class="service-text">
@@ -247,11 +254,12 @@
                     <p>Welcome to Home Connect Nigeria, where your real estate dreams become a reality. As a leading real estate company in Nigeria, we specialize in the sale, rental, and management of a diverse range of properties. Our mission is to provide exceptional service, ensuring that every client finds the perfect property to meet their needs. At Home Connect Nigeria, we are committed to helping you achieve your real estate goals. We promise transparent, honest, and reliable services, ensuring your complete satisfaction. Let us be your trusted partner in all your real estate endeavors.</p>
                 </div>
                 <a href="/about-us">
-                     <button type="submit" class="advanced-search-btn">Learn more</button>
+                    <button type="submit" class="advanced-search-btn">Learn more</button>
                 </a>
             </div>
         </div>
-     </section>
+    </section>
+
 
      <section class="managed-properties">
         <div class="inner-managed-properties wrapper">
@@ -363,7 +371,7 @@
 
       {% include "testimonials.html" %}
 
-        <svg width="100%" height="20%%" viewBox="0 0 1364 796" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="20%" viewBox="0 0 1364 796" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_568_2013" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1364" height="796">
             <path d="M0 0.401855H1364V795.368H0V0.401855Z" fill="white"/>
             </mask>
@@ -376,48 +384,60 @@
 </main>
 
 <script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/gsap.js' %}"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Select the paragraph to update
         const serviceDescription = document.querySelector('.services-text p');
     
-        // Check if the service description element exists
         if (!serviceDescription) {
             console.error('Service description element not found!');
             return;
         }
     
-        // Add event listeners to each service container
+        const servicesInfo = {
+            rental: "At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today.",
+            sales: "Explore our property sales service, offering a curated selection of homes for sale. Our team will guide you through every step of buying your dream home.",
+            management: "Our property management service ensures that your properties are well-maintained and managed efficiently. We handle everything from tenant relations to property maintenance."
+        };
+    
+        // Function to check screen size
+        function isMobile() {
+            return window.innerWidth < 475;
+        }
+    
         document.querySelectorAll('.services-container').forEach(container => {
             container.addEventListener('click', () => {
                 const serviceType = container.getAttribute('data-service');
+                serviceDescription.textContent = servicesInfo[serviceType] || servicesInfo['rental'];
     
-                // Define descriptions based on the service type
-                let description;
-                switch (serviceType) {
-                    case 'rental':
-                        description = "At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today";
-                        break;
-                    case 'sales':
-                        description = "Explore our property sales service, offering a curated selection of homes for sale. Our team will guide you through every step of buying your dream home.";
-                        break;
-                    case 'management':
-                        description = "Our property management service ensures that your properties are well-maintained and managed efficiently. We handle everything from tenant relations to property maintenance.";
-                        break;
-                    default:
-                        description = "At Home Connect Nigeria, we make your home-buying journey seamless and enjoyable. Our expert agents are dedicated to helping you find the perfect property that meets your needs and fits your budget. From initial search to final paperwork, we provide personalized guidance, ensuring a smooth and stress-free experience. Explore our extensive listings of residential homes, apartments, and luxury estates to find your dream home today";
-                }
-    
-                // Update the paragraph text
-                serviceDescription.textContent = description;
-    
-                // Update the arrow icons
+                // Reset all arrows and hide service info
                 document.querySelectorAll('.services-container img').forEach(img => {
                     img.src = '{% static "img/closed-arrow.svg" %}';
                 });
+                document.querySelectorAll('.service-info').forEach(info => {
+                    info.style.display = 'none';
+                });
+    
+                // Toggle clicked service
                 const icon = container.querySelector('img');
+                const serviceInfo = container.querySelector('.service-info');
                 icon.src = '{% static "img/open-arrow.svg" %}';
+    
+                // Only show .service-info if the screen is < 992px
+                if (isMobile()) {
+                    serviceInfo.style.display = 'block';
+                }
             });
+        });
+    
+        // Optional: Add resize listener to handle dynamic changes in screen size
+        window.addEventListener('resize', () => {
+            if (!isMobile()) {
+                document.querySelectorAll('.service-info').forEach(info => {
+                    info.style.display = 'none'; // Hide service-info on larger screens
+                });
+            }
         });
     });
     

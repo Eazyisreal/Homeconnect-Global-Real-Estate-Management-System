@@ -11,7 +11,7 @@ class QuickLinksMixin:
                     {'title': 'About Us', 'url': '/about-us'},
                     {'title': 'Properties', 'url': '/properties'},
                     {'title': 'Management', 'url': '/management'},
-                    {'title': 'Contact Us', 'url': '/contact-us'},                ]
+                    {'title': 'Contact Us', 'url': '/contact'},                ]
             },
             {
                 'title': 'Support',
@@ -39,10 +39,19 @@ class AboutPageView(QuickLinksMixin,TemplateView):
        
 class TeamPageView(QuickLinksMixin,TemplateView):
     template_name = 'team.html'
+    
+class ContactPageView(QuickLinksMixin,TemplateView):
+    template_name = 'contact.html'
+    
 class PropertiesPageView(QuickLinksMixin,TemplateView):
     template_name = 'properties.html'
+    
 class ManagementPageView(QuickLinksMixin,TemplateView):
     template_name = 'management.html'
+    
 class PropertiesDetailsPageView(QuickLinksMixin,TemplateView):
     template_name = 'properties_details.html'
+    
+class ManagementDetailsPageView(QuickLinksMixin,TemplateView):
+    template_name = 'management_details.html'
 

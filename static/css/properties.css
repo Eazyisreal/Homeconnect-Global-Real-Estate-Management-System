@@ -1,5 +1,5 @@
 .hero-properties {
-    background-image: url(/static/img/properties.svg);
+    background-image: url(/static/img/properties.avif);
     background-size: cover;
     background-repeat: no-repeat;
     height: 120dvh;
@@ -254,7 +254,7 @@
 .properties-details-hero {
     background:
         radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
-        url('/static/img/footer-background.svg') var(--primary-color) center;
+        url('/static/img/footer-background.avif') var(--primary-color) center;
     background-size: cover;
     height: 100%;
     padding: 10rem 2rem;
@@ -417,7 +417,7 @@
   .contact-container {
     background:
         radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
-        url('/static/img/footer-background.svg') var(--primary-color) center;
+        url('/static/img/footer-background.avif') var(--primary-color) center;
     background-size: cover;
     height: 100%;
     padding: 10rem 4rem;
@@ -658,6 +658,10 @@
     .property-unit-details,
     .property-display-cards {
         width: 100%;
+    }
+
+    .pagination{
+        justify-content: center;
     }
 
     .pagination-text-container {

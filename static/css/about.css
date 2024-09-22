@@ -1,7 +1,7 @@
 .about {
     background:
         radial-gradient(circle at center bottom, rgba(0, 35, 102, 1), rgba(0, 70, 204, 1), transparent 40%),
-        url('/static/img/footer-background.svg') var(--primary-color) center;
+        url('/static/img/footer-background.avif') var(--primary-color) center;
     background-size: cover;
     height: 100%;
     padding: 2rem;
@@ -192,7 +192,7 @@
 
 
 .team-large-container {
-    background-image: url(/static/img/properties-background.svg);
+    background-image: url(/static/img/properties-background.avif);
     background-color: rgba(255, 255, 255, 0.15);
     background-repeat: no-repeat;
     background-size: cover;
@@ -326,7 +326,7 @@
 
     
     .container{
-        grid-template-columns: repeat(1, 100%%);
+        grid-template-columns: repeat(1, 100%);
     }
 
     .property-svg {
