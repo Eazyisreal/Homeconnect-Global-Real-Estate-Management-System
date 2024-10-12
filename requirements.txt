@@ -4,9 +4,12 @@ beautifulsoup4==4.12.3
 certifi==2024.8.30
 cloudinary==1.41.0
 Django==4.2.14
+django-jazzmin==3.0.0
 django-livereload==1.7
 django-livereload-server==0.5.1
 django-widget-tweaks==1.5.0
+importlib_resources==6.4.5
+pycountry==24.6.1
 python-decouple==3.8
 six==1.16.0
 soupsieve==2.5
@@ -15,3 +18,4 @@ tornado==6.4.1
 typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.3
+zipp==3.20.2

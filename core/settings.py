@@ -15,6 +15,7 @@ from decouple import config
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api	
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,8 +34,11 @@ DEBUG=config('DEBUG', cast=bool)
 ALLOWED_HOSTS = []
 
 
+
+
 # Application definition
 DJANGO_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +46,8 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+    'widget_tweaks',
+    
 ]
 LOCAL_APPS = [
     'authentication',
@@ -51,7 +57,6 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'widget_tweaks',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -155,3 +160,77 @@ cloudinary.config(
   	api_key = config('CLOUDINARY_API_KEY'),
   	api_secret = config('CLOUDINARY_API_SECRET'),
 )
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Home Connect Global ",
+    "site_header": "Home Connect Global  Admin Panel",
+    "site_brand": "Home Connect Global ",
+    "site_logo": "img/logo.svg",
+    "login_logo": 'img/logo.svg',
+    "login_logo_dark": 'img/logo.svg',
+    "site_logo_classes": "img-circle",
+    "site_icon": None,
+    "welcome_sign": "Welcome to Home Connect Global  Admin Panel",
+    
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Site", "url": "/", "new_window": True},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "custom_css": None,
+    "custom_js": None,
+    
+    "show_ui_builder": True,
+    "related_modal_active": True,
+    "changeform_format": "horizontal",
+    "changeform_format_overrides": {"auth.user": "vertical"},
+    "related_modal_active": False,
+    
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": True,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "no_navbar_border": True,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": True,
+    "sidebar_nav_flat_style": False,
+    "theme": "superhero",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": False
+}
+
+
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

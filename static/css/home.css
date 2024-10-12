@@ -118,15 +118,16 @@
 
 .absolute {
   position: absolute;
-  top: 20%;
-  padding: 0 0.62rem;
-  /* width: 3rem; */
+  top: 23%;
+  left: 3%;
 }
+
+
 
 
 .advanced-search-input {
   border: 1px solid #EBEBEB;
-  height: 3.125rem;
+  height: 2.75rem;
   outline: none;
   background: transparent;
   width: 100%;
@@ -134,10 +135,47 @@
   font-size: 1rem;
   font-family: var(--neue-montreal);
   font-weight: 500;
-  padding: .625rem 2.5rem;
+  padding: .625rem 2.1rem;
+  appearance: none;
+  background-image: url(/static/img/dropdown.svg);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
 }
 
 .advanced-search-input::placeholder {
+  color: var(--black);
+  font-size: 1.25rem;
+  font-family: var(--neue-montreal);
+  font-weight: 500;
+}
+.advanced-search-input-type {
+  border: 1px solid #EBEBEB;
+  height: 2.75rem;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  color: var(--black);
+  font-size: 1rem;
+  font-family: var(--neue-montreal);
+  font-weight: 500;
+  padding: .625rem .625rem;
+  appearance: none;
+  background-image: url(/static/img/dropdown.svg);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.advanced-search-input-type::placeholder {
   color: var(--black);
   font-size: 1.25rem;
   font-family: var(--neue-montreal);
@@ -158,11 +196,11 @@
   font-family: var(--neue-montreal);
   font-weight: 500;
   font-size: 1rem;
-  padding: 1.125rem;
+  padding: .625rem;
   border-radius: 6.25rem;
   cursor: pointer;
   border: none;
-  width: 9.5rem;
+  width: 7.5rem;
 }
 
 .reset {
@@ -278,7 +316,8 @@
   border-radius: .625rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .property-details {
@@ -445,9 +484,18 @@
 .service-info {
   font-family: var(--neue-montreal);
   font-weight: 500;
-  font-size:rem;
+  font-size: 1.6rem;
   line-height: 1.6;
   color: var(--black);
+  width: 100%;
+}
+
+.managed-service-info {
+  font-family: var(--neue-montreal);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--white);
   width: 100%;
 }
 
@@ -544,6 +592,7 @@
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   width: 80%;
+  max-width: 900px;
 }
 
 .managed-property-card {
@@ -797,6 +846,18 @@
   width: 7.5rem;
 }
 
+
+.property-link{
+  text-decoration: none;
+  color: black;
+
+}
+
+.property-link:visited{
+  color: black;
+}
+
+
 @media screen and (max-width : 992px) {
 
   .upper-frame {
@@ -940,7 +1001,7 @@
   }
 
   .testimonials-container {
-    padding: 4rem 0 12rem;
+    padding: 0 0 12rem;
   }
 
   .inner-testimonial-container h3 {
@@ -1014,7 +1075,7 @@
   .btn-container {
     display: flex;
   }
-
+e
   .listing-text h3 {
     font-size: 1.75rem;
   }
@@ -1022,6 +1083,14 @@
   .listing-text p {
     font-size: 1rem;
     width: 100%;
+  }
+
+  .advanced-search-input::placeholder, .advanced-search-input-type::placeholder  {
+    font-size: 1rem;
+  }
+
+  .service-info{
+    font-size: 1rem;
   }
 
 }

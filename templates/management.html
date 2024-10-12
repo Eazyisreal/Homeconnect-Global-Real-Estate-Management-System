@@ -1,5 +1,6 @@
 {% extends "_base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}Managed Projects|HomeConnect Global{% endblock %}
 {% block meta_description %}Discover the latest Managed Projects by HomeConnect Global, showcasing our commitment to excellence in real estate.{% endblock %}
@@ -34,7 +35,7 @@
 
     <section class="large-area">
         <div class="cta-container wrapper">
-            <div class="about-cta-inner-container">
+            <div class="about-cta-inner">
                 <h3>What you stand to gain</h3>
                 <div class="services-provided">
                     <div class="services-provided-item">
@@ -156,193 +157,50 @@
                     </button>
                 </div>
             </div>
+                    
             <div class="management-property-display-cards">
-                <a class="property-link" href="management_details">
-                    <div class="property-display-card">
-                        <div class="property-display-card-inner">
-                                <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
-        
-                                <div class="property-unit-details">
-                                    <div class="property-unit-details-top">
-                                        <div class="property-unit-detail">
-        
-                                            <div class="property-location">
-                                                <p>Rent</p>
-                                                <p>Ekpoma, Edo State</p>
+                {%for property in paginated_properties %}
+                    <a class="property-link" href="{% url 'management_details' property.slug %}">
+                        <div class="property-display-card">
+                            <div class="property-display-card-inner">
+                                <img class="property-image"  loading="lazy" src="{{property.thumbnail.url|slice:'0:49' }}w_500,h_500,c_scale/{{ property.thumbnail.url|slice:'49:' }}" alt="{{property.title}}'s image" />
+                                    <div class="property-unit-details">
+                                        <div class="property-unit-details-top">
+                                            <div class="property-unit-detail">
+            
+                                                <div class="property-location">
+                                                    <p>{{property.availability}}</p>
+                                                    <p>{{property.location}}</p>
+                                                </div>
+                                                <h3>{{property.title}}</h3>
+                                                <p>{{property.description}} </p>
+            
+            
                                             </div>
-                                            <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                            <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-        
-        
+                                            
+                                    
+                                        </div>
+
+
+                                        <div class="properties-details-bottom">
+                                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                            <p>{{property.price|format_int_with_commas}} 
+                                                {% if property.availability == 'Rent' %}
+                                                    <span>/ Annually</span>
+                                                {% else %}
+                                                    <span></span>
+                                                {% endif %}
+                                            </p>
                                         </div>
                                         
-                                
-                                    </div>
-                                    <div class="property-unit-details-bottom">
-                                        <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                        <p>400,000 <span>/ Annually</span></p>
                                     </div>
                                 </div>
-                            </div>
-                    </div>
-                </a>
-                <div class="property-display-card">
-                    <div class="property-display-card-inner">
-                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
-
-                            <div class="property-unit-details">
-                                <div class="property-unit-details-top">
-                                    <div class="property-unit-detail">
-
-                                        <div class="property-location">
-                                            <p>Rent</p>
-                                            <p>Ekpoma, Edo State</p>
-                                        </div>
-                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-
-
-                                    </div>
-                                    
-                            
-                                </div>
-                                <div class="property-unit-details-bottom">
-                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
                         </div>
-                </div>
-                <div class="property-display-card">
-                    <div class="property-display-card-inner">
-                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
+                    </a>
+                {% empty %}
+                    <p class="service-info">No Property Available </p>
+                {%endfor%}
 
-                            <div class="property-unit-details">
-                                <div class="property-unit-details-top">
-                                    <div class="property-unit-detail">
-
-                                        <div class="property-location">
-                                            <p>Rent</p>
-                                            <p>Ekpoma, Edo State</p>
-                                        </div>
-                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-
-
-                                    </div>
-                                    
-                            
-                                </div>
-                                <div class="property-unit-details-bottom">
-                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="property-display-card">
-                    <div class="property-display-card-inner">
-                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
-
-                            <div class="property-unit-details">
-                                <div class="property-unit-details-top">
-                                    <div class="property-unit-detail">
-
-                                        <div class="property-location">
-                                            <p>Rent</p>
-                                            <p>Ekpoma, Edo State</p>
-                                        </div>
-                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-
-
-                                    </div>
-                                    
-                            
-                                </div>
-                                <div class="property-unit-details-bottom">
-                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="property-display-card">
-                    <div class="property-display-card-inner">
-                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
-
-                            <div class="property-unit-details">
-                                <div class="property-unit-details-top">
-                                    <div class="property-unit-detail">
-
-                                        <div class="property-location">
-                                            <p>Rent</p>
-                                            <p>Ekpoma, Edo State</p>
-                                        </div>
-                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-
-
-                                    </div>
-                                    
-                            
-                                </div>
-                                <div class="property-unit-details-bottom">
-                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="property-display-card">
-                    <div class="property-display-card-inner">
-                            <img class="property-image" src="{% static 'img/property.svg' %}" alt="Property Image">
-
-                            <div class="property-unit-details">
-                                <div class="property-unit-details-top">
-                                    <div class="property-unit-detail">
-
-                                        <div class="property-location">
-                                            <p>Rent</p>
-                                            <p>Ekpoma, Edo State</p>
-                                        </div>
-                                        <h3>BOLDION HOSTEL 4 UNIT ...</h3>
-                                        <p>This residential building in Ekpoma, Edo State comprises four units, each offering modern living space. Each apartment features well-designed layouts, modern conveniences, and stylish furnishings. The apartments are located in a bustling community with convenient ... </p>
-
-
-                                    </div>
-                                    
-                            
-                                </div>
-                                <div class="property-unit-details-bottom">
-                                    <img src="{% static 'img/naira-blue.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                    
-                <div class="pagination">
-                    <div class="pagination-text-container">
-                        <div class="pagination-text">
-                            <p>Showing</p> <span>1</span>
-                        </div>
-                        <p>Of 150</p>
-                    </div>
-
-                    <div class="pagination-numbers">
-                        <img src="{% static 'img/previous.svg' %}" alt="Previous button">
-                        <div class="pagination-number">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <p>...</p>
-                            <span>50</span>
-                        </div>
-                        <img src="{% static 'img/next.svg' %}" alt="Next button">
-                    </div>
-                </div>
             </div>
         </div>
     </section>  

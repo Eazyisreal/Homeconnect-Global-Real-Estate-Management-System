@@ -46,6 +46,29 @@
             Sign In
           </button>
         </div>
+
+        <div class="mobile-inner-header">
+            
+          <a class="logo" href="/">
+            <img src="{% static 'img/logo.svg' %}" alt="logo">
+          </a>
+          <ul id="nav" class="nav-links">
+            <li class="nav-items"><a href="/about-us">About Us</a></li>
+            <li class="nav-items"><a href="/properties">Properties</a></li>
+            <li class="nav-items"><a href="/management">Management</a></li>
+            <li class="nav-items"><a href="/contact">Contact Us</a></li>
+          </ul>
+          <button id="btn" class="btn">
+            Sign In
+          </button>
+          <div class="harmburger-parent">
+              <div id="hamburger" class="harmburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </div>
+        </div>
       </header>
       {% block content %}
       {% endblock %}
@@ -61,9 +84,11 @@
                   </div>
 
                   <div class="btn-container">
-                    <button class="manage-btn">
-                      Contact
-                    </button>
+                    <a class="property-link" href="/contact">
+                      <button class="manage-btn">
+                        Contact
+                      </button>
+                    </a>
                     
                     <button class="properties-btn">Read More</button>
                   </div>
@@ -77,7 +102,7 @@
                           <div class="inner-newsletter">
                             <h3>Subscribe to <br/> our newsletter</h3>
                             <div class="input-container">
-                              <input placeholder="Email Address" type="email" name="email" id="email">
+                              <input class="email-input" placeholder="Email Address" type="email" name="email" id="email">
                               <button class="newsletter-btn"></button>
                             </div>
                           </div>
@@ -118,5 +143,5 @@
       </div>
       </footer>
     </section>
-  </body>
+    <script src="{% static 'js/hamburger.js' %}"></script>
 </html>

@@ -20,7 +20,10 @@
 
 
 {% block content %}  
+{% include 'messages.html' %}
+
 <section class="contact">
+
     <div class="inner-contact wrapper">
         <div class="contact-text-container">
             <h3>Hello, we would love to hear from you</h3>
@@ -52,31 +55,55 @@
             </div>
     
             <div class="contact-form-container">
+
                 <h3>Contact</h3>
-                <form class="form" action="">
+
+                <form method="post" class="form" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    
                     <div class="form-details">
-                        <label class="label" for="name">Name</label>
-                        <input class="name" type="text" name="name" id="" placeholder="Name">
+                        <label class="label" for="id_name">Name</label>
+                        {% render_field contact_form.name placeholder='Name' type='text' class+="form-input" %}
+                        {% if contact_form.errors.name %}
+                            <p class="error">{{ contact_form.errors.name }}</p>
+                        {% endif %}
                     </div>
+                
                     <div class="form-details">
-                        <label class="label" for="name">Phone</label>
-                        <input class="name" type="tel" name="phone" id="" placeholder="Phone">
+                        <label class="label" for="id_phone_number">Phone</label>
+                        {% render_field contact_form.phone_number placeholder='Phone' class+="form-input" %}
+                        {% if contact_form.errors.phone_number %}
+                            <p class="error">{{ contact_form.errors.phone_number }}</p>
+                        {% endif %}
                     </div>
+                
                     <div class="form-details">
-                        <label class="label" for="name">Email Address</label>
-                        <input class="name" type="email" name="email" id="" placeholder="Email Address">
+                        <label class="label" for="id_email">Email Address</label>
+                        {% render_field contact_form.email placeholder='Email Address' class+="form-input" %}
+                        {% if contact_form.errors.email %}
+                            <p class="error">{{ contact_form.errors.email }}</p>
+                        {% endif %}
                     </div>
+                
                     <div class="form-details">
-                        <label class="label" for="name">Location</label>
-                        <input class="name" type="text" name="location" id="" placeholder="Location">
+                        <label class="label" for="id_subject">Location</label>
+                        {% render_field contact_form.location placeholder='Location' class+="form-input" %}
+                        {% if contact_form.errors.location %}
+                            <p class="error">{{ contact_form.errors.location }}</p>
+                        {% endif %}
                     </div>
+                
                     <div class="form-details">
-                        <label class="label" for="name">Message</label>
-                        <textarea rows="10" cols="5" class="textarea" name="message" id="" placeholder="Message"></textarea>
+                        <label class="label" for="id_message">Message</label>
+                        {% render_field contact_form.message rows="10" cols="5" placeholder='Message' class+="textarea" %}
+                        {% if contact_form.errors.message %}
+                            <p class="error">{{ contact_form.errors.message }}</p>
+                        {% endif %}
                     </div>
-        
+                
                     <button class="form-submit" type="submit">Send</button>
-                </form>        
+                </form>
+                
             </div>  
     
         </div>

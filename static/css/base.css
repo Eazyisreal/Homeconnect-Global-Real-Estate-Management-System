@@ -9,7 +9,8 @@
 :root {
   --primary-color: #002366;
   --secondary-color: #E7F2F5;
-  --tertiary-color: #E5E8EA --background-white: #FBFBFB;
+  --tertiary-color: #E5E8EA;
+  --background-white: #FBFBFB;
   --black: #050505;
   --white: #FFFFFF;
   --neue-montreal: "Neue Montreal", sans-serif;
@@ -22,9 +23,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  border-radius: 1.2rem;
-  width: .025rem;
+  display: none;
 }
 
 
@@ -42,7 +41,9 @@
   margin: 0 auto;
 }
 
-
+.mobile-inner-header {
+  display: none;
+}
 
 .header {
   background-color: var(--white);
@@ -91,7 +92,7 @@
   justify-content: center;
   align-items: center;
   border: 1.5px solid;
-  padding: 1.25rem;
+  padding: .625rem;
   border-radius: 6.25rem;
   background: #FE0202;
   color: white;
@@ -102,8 +103,81 @@
   cursor: pointer;
   font-family: var(--neue-montreal);
   font-weight: 500;
-  width: 9.5rem;
+  width: 7.5rem;
 }
+
+
+.harmburger,
+.harmburger-parent {
+  display: none;
+  cursor: pointer;
+}
+
+.harmburger .bar {
+  display: block;
+  width: 1.5rem;
+  height: .15rem;
+  margin: 0.20rem auto;
+  transition: all 0.3s ease-in-out;
+  background: var(--primary-color);
+  border-radius: 1.5px;
+}
+
+#nav.visible {
+  display: flex;
+  background: var(--secondary-color);
+  width: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  align-items: center;
+  z-index: 5;
+  padding: 3rem;
+  height: 100dvh;
+}
+
+.btn.visible {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  position: absolute;
+  top: 550%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 1rem 3.5rem;
+}
+
+.toast-box {
+  position: fixed;
+  top: 90px;
+  right: -300px; /* assuming the width of the toast-box is 300px */
+  background: var(--tertiary-color);
+  padding: 2.5rem 1.25rem;
+  border-radius: 1.125rem;
+  z-index: 7;
+  animation: moveright 1s linear forwards;
+}
+
+@keyframes moveright {
+  100% {
+    right: 10px;
+  }
+}
+
+.toast-text {
+  color: var(--primary-color);
+  font-family: var(--neue-montreal);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+
 
 .footer {
   background:
@@ -220,7 +294,7 @@
   display: flex;
 }
 
-input[type="email"] {
+.email-input {
   border-radius: 10px 0 0 10px;
   padding: 1.25rem;
   border: 1px solid #ccc;
@@ -233,7 +307,7 @@ input[type="email"] {
   color: var(--white);
 }
 
-input[type="email"]::placeholder {
+.email-input::placeholder {
   font-family: var(--neue-montreal);
   font-weight: 500;
   font-size: 1.125rem;
@@ -345,6 +419,12 @@ input[type="email"]::placeholder {
   list-style: none;
 }
 
+.error-message,
+.errorlist {
+  color: red;
+  padding-left: 1.125rem;
+}
+
 
 
 @media screen and (min-width: 1000px) and (max-width: 1440px) {
@@ -354,6 +434,73 @@ input[type="email"]::placeholder {
 }
 
 @media screen and (max-width : 992px) {
+
+  .inner-header {
+    display: none;
+  }
+
+  /* .toast-box {
+    left: 38%;
+  } */
+
+
+  .mobile-inner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-inner-header a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--primary-color);
+    align-items: center;
+  }
+
+
+  .mobile-inner-header a>p {
+    font-family: 'Neue Montreal Medium', sans-serif;
+    font-size: .8rem;
+  }
+
+
+
+  .harmburger-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .harmburger {
+    display: block;
+  }
+
+  .harmburger.visible .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .harmburger.visible .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .harmburger.visible .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .header {
+    background-color: white;
+    opacity: .8;
+  }
+
+
+  .nav-links,
+  .btn {
+    display: none;
+  }
 
   input[type="email"]::placeholder {
     font-size: 1rem;
@@ -384,7 +531,7 @@ input[type="email"]::placeholder {
     width: 100%;
   }
 
-  input[type="email"] {
+  .email-input {
     width: 100%;
   }
 
@@ -401,6 +548,10 @@ input[type="email"]::placeholder {
 }
 
 @media screen and (max-width : 475px) {
+
+  /* .toast-box {
+    left: 12%;
+  } */
 
   .btn-container {
     flex-direction: column;

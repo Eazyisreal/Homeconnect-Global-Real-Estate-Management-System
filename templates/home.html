@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 {% load static %}
+{% load custom_filters %}
+
 
 {% block title %}Home | HomeConnect Global{% endblock %}
 {% block meta_description %}Discover your dream home with HomeConnect Global. We offer a wide range of properties to meet all your real estate needs.{% endblock %}
@@ -33,36 +35,51 @@
                 <p>Discover a wide range of properties for rent and sale, expertly managed for your convenience. </p>
             </div>
             
-            <div class="advanced-search-container">
+            <form class="advanced-search-container" method="get" action="{% url 'properties' %}">
                 <div class="advanced-search">
                     <div class="top-search-container">
                         <div class="search-items">
                             <h3>Location</h3>
                             <div class="project-search-form relative">
                                 <img loading="lazy" class="absolute" src="{% static 'img/location.svg' %}" alt="Search Icon" />
-                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="City, State" value="{{ request.GET.location }}">
+                                <select class="advanced-search-input" name="location" id="location">
+                                    <option value="">Select Location</option>
+                                    {% for location in locations %}
+                                        <option value="{{ location }}" {% if request.GET.location == location %}selected{% endif %}>{{ location }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                         <div class="search-items">
                             <h3>Property Types</h3>
-                            <div class="project-search-form relative">
-                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="All Category" value="{{ request.GET.location }}">
+                            <div class="project-search-form">
+                                <select class="advanced-search-input-type" name="property_type" id="property_type">
+                                    <option value="">Select Property Type</option>
+                                    {% for category in categories %}
+                                        <option value="{{ category }}" {% if request.GET.property_type == category %}selected{% endif %}>{{ category }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                         <div class="search-items">
                             <h3>Listing Type</h3>
-                            <div class="project-search-form relative">
-                                <input class="advanced-search-input" type="text" name="location" id="location" placeholder="Rent" value="{{ request.GET.location }}">
+                            <div class="project-search-form">
+                                <select class="advanced-search-input-type" name="listing_type" id="listing_type">
+                                    <option value="">Select Listing Type</option>
+                                    {% for listing_type in listing_types %}
+                                        <option value="{{ listing_type }}" {% if request.GET.listing_type == listing_type %}selected{% endif %}>{{ listing_type }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="advanced-search-btn-container">
                         <button type="submit" class="advanced-search-btn">Search</button>
                         <button class="reset" type="reset">Reset All</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
@@ -79,127 +96,42 @@
                     <button class="properties-btn">See all</button>
                 </div>
             </div>
-            <div class="properties-grid-container">
                 <div class="properties-grid-container">
                     <div class="properties-grid">
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
+                        {% for property in properties %}
+                        <a class="property-link" href="{% url 'properties_details' property.slug %}">
+                            <div class="property-card">
+                                <div class="property-image">
+                                    <img  loading="lazy" src="{{property.thumbnail.url|slice:'0:49' }}w_500,h_500,c_scale/{{ property.thumbnail.url|slice:'49:' }}" alt="{{property.title}}'s image" />
+                        
+                                </div>
+                                <div class="property-details">
+                                    <div class="property-details-top">
+                                        <div class="property-details-top-inner">
+                                            <p>{{property.availability}}</p>
+                                            <p>{{property.location}}</p>
+                                        </div>
+                                        <p>{{property.title}}</p>
                                     </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
+                                
+                                    <div class="properties-details-bottom">
+                                        <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                        <p>{{property.price|format_int_with_commas}} 
+                                            {% if property.availability == 'Rent' %}
+                                                <span>/ Annually</span>
+                                            {% else %}
+                                                <span></span>
+                                            {% endif %}
+                                        </p>
                                     </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
-                                    </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
-                                    </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
-                                    </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="property-card">
-                            <div class="property-image">
-                                <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-top">
-                                    <div class="property-details-top-inner">
-                                        <p>Rent</p>
-                                        <p>Ekpoma, Edo State</p>
-                                    </div>
-                                    <p>BOLDION HOSTEL 4 UNIT ...</p>
-                                </div>
-    
-                                <div class="properties-details-bottom">
-                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                                    <p>400,000 <span>/ Annually</span></p>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
+                    {% empty %}
+                        <p class="service-info">No Property Available </p>
+                    {% endfor %}
                     </div>
                 </div>
-             
-            </div>
         </div>
      </section>
 
@@ -270,84 +202,37 @@
             
 
             <div class="managed-properties-grid">
-                <div class="managed-property-card">
-                    <div class="managed-property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="managed-property-details">
-                        <div class="managed-property-details-top">
-                            <div class="managed-property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
+                 {% for property in managed_properties %}
+                    <a class="property-link" href="{% url 'management_details' property.slug %}">
+                        <div class="managed-property-card">
+                            <div class="managed-property-image">
+                                <img  loading="lazy" src="{{property.thumbnail.url|slice:'0:49' }}w_500,h_500,c_scale/{{ property.thumbnail.url|slice:'49:' }}" alt="{{property.title}}'s image" />
                             </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="managed-properties-details-bottom">
-                            <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="managed-property-card">
-                    <div class="managed-property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="managed-property-details">
-                        <div class="managed-property-details-top">
-                            <div class="managed-property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
+                            <div class="managed-property-details">
+                                <div class="managed-property-details-top">
+                                    <div class="managed-property-details-top-inner">
+                                        <p>{{property.availability}}</p>
+                                        <p>{{property.location}}</p>
+                                    </div>
+                                    <p>{{property.title}}</p>
+                                </div>
+                                <div class="managed-properties-details-bottom">
+                                    <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
+                                    <p>{{property.price|format_int_with_commas}} 
+                                        {% if property.availability == 'Rent' %}
+                                            <span>/ Annually</span>
+                                        {% else %}
+                                            <span></span>
+                                        {% endif %}
+                                    </p>
+                                </div>
                             </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
                         </div>
-
-                        <div class="managed-properties-details-bottom">
-                            <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="managed-property-card">
-                    <div class="managed-property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="managed-property-details">
-                        <div class="managed-property-details-top">
-                            <div class="managed-property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="managed-properties-details-bottom">
-                            <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="managed-property-card">
-                    <div class="managed-property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="managed-property-details">
-                        <div class="managed-property-details-top">
-                            <div class="managed-property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="managed-properties-details-bottom">
-                            <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                    {% empty %}
+                        <p class="managed-service-info">No Property Available </p>
+                    {% endfor %}
             </div>
-
             <div class="controls">
                 <img src="{% static '/img/arrow-left.svg' %}" alt="Arrow facing left">
                 <img src="{% static '/img/arrow-right.svg' %}" alt="Arrow facing right">

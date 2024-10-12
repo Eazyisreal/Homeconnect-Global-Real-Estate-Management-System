@@ -1,49 +1,57 @@
 {% extends "_base.html" %}
 {% load widget_tweaks %}
 {% load static %}
+{% load custom_filters %}
 
-{% block title %}{{ Management.title }} Management Details| Home Connect Global{% endblock %}
-{% block meta_description %}Discover details about {{ Management.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
-{% block meta_keywords %}HomeConnect Global, real estate, property details, {{ Management.title }}, property features{% endblock %}
+{% block title %}{{ property.title }} property Details| Home Connect Global{% endblock %}
+{% block meta_description %}Discover details about {{ property.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
+{% block meta_keywords %}HomeConnect Global, real estate, property details, {{ property.title }}, property features{% endblock %}
 {% block css %}{% static 'css/home.css' %}{% endblock %}
 {% block other_css %}{% static 'css/properties.css' %}{% endblock %}
 
-{% block og_title %}{{ Management.title }} | Home Connect Global{% endblock %}
-{% block og_description %}Discover details about {{ Management.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
-{% block og_image %}{{ Management.image.url }}{% endblock %}
+{% block og_title %}{{ property.title }} | Home Connect Global{% endblock %}
+{% block og_description %}Discover details about {{ property.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
+{% block og_image %}{{ property.image.url }}{% endblock %}
 {% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
 {% block og_type %}website{% endblock %}
 
-{% block twitter_title %}{{ Management.title }} | Home Connect Global{% endblock %}
-{% block twitter_description %}Discover details about {{ Management.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
-{% block twitter_image %}{{ Management.image.url }}{% endblock %}
+{% block twitter_title %}{{ property.title }} | Home Connect Global{% endblock %}
+{% block twitter_description %}Discover details about {{ property.title }} at Home Connect Global. Explore features, amenities, and more.{% endblock %}
+{% block twitter_image %}{{ property.image.url }}{% endblock %}
 
 
 {% block content %}
+{% include 'messages.html' %}
+
 <main>
     <!-- about -->
     <section class="properties-details-hero">
         <div class="properties-details-hero-inner wrapper">
             <div class="properties-grid-container">
                 <div class="property-grid">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    <img src="{% static 'img/property.svg' %}" alt="Property Image">
-
+                    {% for image in images %}
+                    <div class="featured-details">
+                        <img  loading="lazy" src="{{ image.associated_Management_image.url|slice:'0:49' }}w_500,h_500,c_scale/{{ image.associated_Management_image.url|slice:'49:' }}" alt="Property Image"/>
+                    </div>
+                    {%endfor%}
                 </div>
             </div>
 
+            
             <div class="property-info">
                 <div class="property-text-info">
-                    <h3>BOLDION HOSTEL4 UNITS OF 2-BEDROOM APARTMENT</h3>
-                    <p>Assembly Of God Church Road, Lane After Poultry Road, Amos Jack Street, Ekpoma, Edo State</p>
+                    <h3>{{property.title}}</h3>
+                    <p>{{property.address}}</p>
                 </div>
                 <div class="property-price">
                     <img src="{% static 'img/naira-white.svg' %}" alt=" Naira Symbol">
-                    <p>500,000 <span>/Annually</span></p>
+                    <p>{{property.price|format_int_with_commas}} 
+                        {% if property.availability == 'Rent' %}
+                            <span>/ Annually</span>
+                        {% else %}
+                            <span></span>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
     </section>
@@ -54,23 +62,23 @@
             <div class="details-container">
                 <div class="services-text">
                     <h3>About Property</h3>
-                    <span >This residential building in Ekpoma, Edo State comprises four units, each offering modern living space.Each apartment features well-designed layouts, modern conveniences, and stylish furnishings.The apartments are located in a bustling community with convenient access to necessary amenities. These apartments are ideal for individuals or families looking for a comfortable and stylish home</span>
+                    <span >{{property.details}}</span>
                 </div>
     
                 <div class="property-information">
                     <ul class="property-information-left">
                         <li class="property-items">Type:</li>
                         <li class="property-items">Category:</li>
-                        <li class="property-items">Numbers of room:s</li>
+                        <li class="property-items">Numbers of rooms:</li>
                         <li class="property-items">Numbers of Bathrooms:</li>
                         <li class="property-items">Numbers of floors:</li>
                     </ul>
                     <ul class="property-information-right">
-                        <li class="property-items">Rent</li>
-                        <li class="property-items">Duplex</li>
-                        <li class="property-items">6</li>
-                        <li class="property-items">7</li>
-                        <li class="property-items">2</li>
+                        <li class="property-items">{{property.availability}}</li>
+                        <li class="property-items">{{property.category}}</li>
+                        <li class="property-items">{{property.no_of_bedrooms }}</li>
+                        <li class="property-items">{{property.no_of_bathrooms}}</li>
+                        <li class="property-items">{{property.no_of_floors}}</li>
                     </ul>
     
                 </div>
@@ -80,13 +88,9 @@
                 <div class="inner-features-container">
                     <h3>Features</h3>
                     <div class="features">
-                        <h4>Pool</h4>
-                        <h4>Vendor</h4>
-                        <h4>Indoor Gym</h4>
-                        <h4>Elevator</h4>
-                        <h4> Electronic key card access</h4>
-                        <h4>Sauna</h4>
-                        <h4>Fire alarm</h4>
+                    {% for feature in features_list %}
+                        <h4>{{ feature }}</h4>
+                    {% endfor %}
                     </div>
                 </div>
             </div>
@@ -98,41 +102,69 @@
             <div class="top-container">
                 <div class="contact-form-container">
                     <h3>Contact</h3>
-                    <form class="form" action="">
+                    <form method="post" class="form" action="{% url 'management_details' property.slug %}">
+                        {% csrf_token %}
                         <div class="form-details">
                             <label class="label" for="name">Name</label>
-                            <input class="name" type="text" name="name" id="" placeholder="Name">
+                            {% render_field property_form.name placeholder='Name' type='text' class+="form-input" %}
+                            {% if property_form.errors.name %}
+                                <p class="error">{{ property_form.errors.name }}</p>
+                            {% endif %}
                         </div>
                         <div class="form-details">
                             <label class="label" for="name">Phone</label>
-                            <input class="name" type="tel" name="phone" id="" placeholder="Phone">
+                            {% render_field property_form.phone_number placeholder='Phone' type='text' class+="form-input" %}
+                            {% if property_form.errors.phone_number %}
+                                <p class="error">{{ property_form.errors.phone_number }}</p>
+                            {% endif %}
                         </div>
                         <div class="form-details">
                             <label class="label" for="name">Email Address</label>
-                            <input class="name" type="email" name="email" id="" placeholder="Email Address">
+                            {% render_field property_form.email placeholder='Email Address' type='email' class+="form-input" %}
+                            {% if property_form.errors.email %}
+                                <p class="error">{{ property_form.errors.email }}</p>
+                            {% endif %}
                         </div>
                         <div class="form-details">
                             <label class="label" for="name">Message</label>
-                            <textarea rows="10" cols="5" class="textarea" name="message" id="" placeholder="Message"></textarea>
+                            {% render_field property_form.message rows="10" cols="5" placeholder='Message' class+="textarea" %}
+                            {% if property_form.errors.message %}
+                                <p class="error">{{ property_form.errors.message }}</p>
+                            {% endif %}
                         </div>
     
                         <button class="form-submit" type="submit">Send</button>
                     </form>        
                 </div>
                 <div class="agent-container">
+                    {% for agent in agents %}
                     <h3>Agent Information</h3>
-                    <img src="{% static 'img/agent.svg' %}" alt="agent img">
+                    <img  loading="lazy" src="{{ agent.image.url|slice:'0:49' }}w_500,h_500,c_scale/{{ agent.image.url|slice:'49:' }}" alt="Property Image"/>
     
                     <div class="agent-details">
-                        <h3>Home connect Nigeria</h3>
-                        <p>+2347014498006</p>
+                        <h3>{{agent.email}}</h3>
+                        <p>{{agent.phone_number}}</p>
                     </div>
+                    {%endfor%}
                 </div>
             </div>
 
             <div class="map-width">
                 <h2>Location</h2>
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.785776670279!2d5.211290420397084!3d7.265203373969386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10478fdb2ccb85d5%3A0xe3bee361a8ba7622!2s8%20Owo%20Avenue%2C%20Akure%20340110%2C%20Ondo!5e0!3m2!1sen!2sng!4v1712217717513!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {% if property.address %}
+                <iframe
+                    class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.49824672404!2d3.4503737947407345!3d6.450198134905467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s{{ property.address|urlencode }}!2s{{ property.address|urlencode }}!5e0!3m2!1sen!2sng!4v1706691718033!5m2!1sen!2sng"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            {% else %}
+                <p class="service-info">No address available for this property.</p>
+            {% endif %}
               </div>
         </div>
     </section>
@@ -142,120 +174,37 @@
             <h3>Similar Properties</h3>
 
             <div class="properties-grid">
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
+                {%for property in paginated_properties %}
+                    <a class="property-link" href="{% url 'properties_details' property.slug %}">
+                        <div class="property-card">
+                            <div class="property-image">
+                                <img loading="lazy" src="{{property.thumbnail.url|slice:'0:49' }}w_500,h_500,c_scale/{{ property.thumbnail.url|slice:'49:' }}" alt="{{property.title}}'s image" />
                             </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
+                            <div class="property-details">
+                                <div class="property-details-top">
+                                    <div class="property-details-top-inner">
+                                        <p>{{property.availability}}</p>
+                                        <p>{{property.location}}</p>
+                                    </div>
+                                    <p>{{property.title}}</p>
+                                </div>
+                                <div class="properties-details-bottom">
+                                    <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
+                                    <p>{{property.price|format_int_with_commas}} 
+                                        {% if property.availability == 'Rent' %}
+                                            <span>/ Annually</span>
+                                        {% else %}
+                                            <span></span>
+                                        {% endif %}
+                                    </p>
+                                </div>
                             </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
                         </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="{% static 'img/property.svg' %}" alt="Property Image">
-                    </div>
-                    <div class="property-details">
-                        <div class="property-details-top">
-                            <div class="property-details-top-inner">
-                                <p>Rent</p>
-                                <p>Ekpoma, Edo State</p>
-                            </div>
-                            <p>BOLDION HOSTEL 4 UNIT ...</p>
-                        </div>
-
-                        <div class="properties-details-bottom">
-                            <img src="{% static 'img/naira.svg' %}" alt=" Naira Symbol">
-                            <p>400,000 <span>/ Annually</span></p>
-                        </div>
-                    </div>
-                </div>
+                    </a>    
+                {% empty %}
+                    <p class="service-info">No Property Available </p>
+                {%endfor%}
+           
             </div>
 
         </div>

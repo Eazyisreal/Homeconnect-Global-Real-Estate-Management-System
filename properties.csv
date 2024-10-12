@@ -1,0 +1,6 @@
+availability,title,location,category,price,living_room,dining,no_of_bedrooms,no_of_bathrooms,no_of_floors,features,associated_agent
+Rent,Beautiful 3 Bedroom Apartment,New York,Apartment,150000,1,1,3,2,1,Modern Kitchen,Agent 1
+Selling,Cozy 2 Bedroom House,Los Angeles,House,200000,1,1,2,1,1,Backyard,Agent 2
+Rent,Spacious 4 Bedroom Condo,Chicago,Condo,250000,1,1,4,2,2,Pool,Agent 3
+Selling,Stunning 5 Bedroom Mansion,Miami,Mansion,500000,1,1,5,3,3,Private Beach,Agent 1
+Rent,Charming 1 Bedroom Studio,Boston,Studio,80000,1,0,1,1,1,Walk-in Closet,Agent 2

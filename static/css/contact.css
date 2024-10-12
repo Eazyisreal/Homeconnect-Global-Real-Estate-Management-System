@@ -29,6 +29,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   
   .contact-text-container h3 {
@@ -85,7 +86,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 50%;
+    width: 100%;
   }
 
   .top-container{
@@ -135,6 +136,7 @@
     display: flex;
     flex-direction: column;
     gap: 2.625rem;
+    width: 100%;
   }
 
   .contact-form-container h3{
@@ -149,7 +151,6 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;  
-    width: 50%;
   }
 
   .form-details{
@@ -166,7 +167,7 @@
   }
 
 
-  .form-details input{
+  .form-input{
     outline: none;
     border: 1px solid #0000000D;
     border-radius: .3125rem;
@@ -180,7 +181,7 @@
     color: var(--black);
   }
 
-  .form-details input::placeholder{
+  .form-input::placeholder{
     font-family: var(--neue-montreal);
     font-weight: 500;
     font-size: 1.125rem;
@@ -302,7 +303,7 @@
 
     .contact-text-container h3{
         font-size: 1.75rem;
-        width: 100%;
+        width: 90%;
     }
 
 

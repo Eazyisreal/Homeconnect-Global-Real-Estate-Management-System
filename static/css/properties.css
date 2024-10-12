@@ -76,6 +76,41 @@
     gap: 1.5rem;
 }
 
+.options{
+    display: flex;
+    border: 1px solid var(--primary-color);
+    border-radius: .3125rem;
+    padding: .625rem 1rem .625rem 1.25rem;
+    gap: 1.5rem;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+    appearance: none;
+    background-image: url(/static/img/dropdown.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-right: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+
+.filter-btn{
+    border: 1px solid var(--primary-color);
+    border-radius: .3125rem;
+    padding: .625rem 1rem .625rem 1.25rem;
+    gap: 1.5rem;
+    font-family: var(--neue-montreal);
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+    outline: none;
+}
+
+
+
 .filter-items h4 {
     font-family: var(--neue-montreal);
     font-weight: 500;
@@ -227,6 +262,7 @@
     display: flex;
     gap: .75rem;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -243,7 +279,7 @@
     justify-content: center;
     border: .5px solid var(--primary-color);
     border-radius: .3125rem;
-    padding: .5rem 1.125rem;
+    padding: .4rem 1.125rem;
     font-family: var(--neue-montreal);
     font-weight: 500;
     font-size: 1.25rem;
@@ -765,6 +801,14 @@
         width: 1.5rem;
     }
 
+    .property-items{
+        font-size: 1rem;
+    }
+
+    .property-information-right .property-items{
+        text-align: right;
+    }
+
     .contact-form-container h3, .paginated-properties h3, .agent-container h3, .map-width h2{
         font-size: 1.75rem;
     }
@@ -788,6 +832,11 @@
 
     .paginated-properties{
         padding: 60% 0 4rem;
+    }
+
+    .pagination-numbers {
+        overflow: scroll;
+        width: 100%;
     }
 
 }
